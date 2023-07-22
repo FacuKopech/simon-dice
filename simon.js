@@ -13,11 +13,14 @@ input = document.getElementById("textInput");
 title = document.getElementById("welcomeTitle");
 titlePopup = document.getElementById("popupTitle");
 popupLooser = document.getElementById('popupLooser');
-btnClosePopup = document.getElementById('closePopupBtn');
+popupNameInfo = document.getElementById('popupNameInfo');
+btnGameOverClosePopup = document.getElementById('closeGameOverPopupBtn');
+btnNameInfoClosePopup = document.getElementById('closeNameInfoPopupBtn');
 btnReset = document.getElementById('btnReset');
 looserLayerElement = document.querySelector('.color-layer-looser');
 winnerLayerElement = document.querySelector('.color-layer-winner');
-
+progressBar = document.getElementById('progressBar');
+labelSeconds = document.getElementById('labelSeconds');
 
 var audioRojo = new Audio("C:/Users/FacundoKopech/Downloads/redBtnAudio.mp3");
 var audioAzul = new Audio("C:/Users/FacundoKopech/Downloads/blueBtnAudio.mp3");
@@ -31,25 +34,52 @@ var playerClicksCounter = 0;
 var level = 1;
 var actualScore = 0;
 var highestScore = 0;
+var completeCharactersOnTitle = false;
+var totalSequenceTime = 5;
+var secondsLeft = totalSequenceTime;
+var progressInterval;
 
-window.onload = function() {
+function updateProgressBar(secondsLeft) {    
+    var progressPercentage = (secondsLeft / (totalSequenceTime + (level-1))) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+    console.log(secondsLeft,progressPercentage);
+  if (secondsLeft <= 0) {
+    clearInterval(progressInterval);
+    progressBar.style.width = '0%';    
+    finalizarJuego();
+  }
+  if(progressPercentage <= 50){
+    console.log(progressPercentage);
+    progressBar.style.backgroundColor = "red";
+    labelSeconds.style.color = "red";
+  }else{
+    progressBar.style.backgroundColor = "darkgreen";
+    labelSeconds.style.color = "darkgreen";
+  }
+}
+
+
+
+window.onload = function() {    
+    popupNameInfo.style.display = "flex";
     var highestScore = localStorage.getItem('highScore');
     labelHighestScoreSaved.textContent = highestScore;
     var highLevel = localStorage.getItem('highLevel');
     labelHighestLevelSaved.textContent = highLevel;
+    btnPlay.disabled = true;
     btnRed.disabled = true;
     btnBlue.disabled = true;
     btnGreen.disabled = true;
-    btnYellow.disabled = true;
- 
+    btnYellow.disabled = true;     
   };
-btnPlay.addEventListener("click", function() {
+btnPlay.addEventListener("click", function() {  
+    input.disabled = true;  
     juegoActualH3.classList.remove("currentGameOver");
     juegoActualH3.classList.add("currentGame");    
     btnPlay.disabled = true;    
     levelDisplay.textContent = "Nivel: " + level;    
     btnPlay.textContent = "MIRA Y ESCUCHA!"; 
-    armarSecuencia();    
+    armarSecuencia();        
 });
 
 function armarSecuencia(){             
@@ -61,13 +91,22 @@ function armarSecuencia(){
         levelDisplay.textContent = "Nivel: " + level;
         labelScore.textContent = actualScore;
     }
-        btnRed.disabled = true;
-        btnBlue.disabled = true;
-        btnGreen.disabled = true;
-        btnYellow.disabled = true;
+    btnRed.disabled = true;
+    btnBlue.disabled = true;
+    btnGreen.disabled = true;
+    btnYellow.disabled = true;
+    secondsLeft = totalSequenceTime + (level-1);        
+    updateProgressBar(secondsLeft);
+    labelSeconds.textContent = secondsLeft;
     reproducirSecuencia();
     var sequenceDuration = 1500 * gameSequenceArray.length;
     setTimeout(function() {
+       
+        progressInterval = setInterval(() => {
+            secondsLeft--;
+            updateProgressBar(secondsLeft);
+            labelSeconds.textContent = secondsLeft;
+          }, 1000);         
         btnPlay.textContent = "REPETI LA SECUENCIA!";
         btnRed.disabled = false;
         btnBlue.disabled = false;
@@ -76,12 +115,24 @@ function armarSecuencia(){
       }, sequenceDuration);    
 }
 function updateTitle() {    
-    var updatedTitle = `Bienvenido ${input.value}`;
-    title.textContent = updatedTitle;
+    if(input.value.trim() !== ''){ //Check if typed values are not just spaces        
+        var updatedTitle = `Bienvenido ${input.value}`;       
+        title.textContent = updatedTitle;
+        if(title.textContent.length >= 14){
+            completeCharactersOnTitle = true; //Rise flag when title value reaches 14 characters
+        }    
+        if(title.textContent.length >= 14){
+            btnPlay.disabled = false;
+        }else if(title.textContent.length < 14 && completeCharactersOnTitle == true){ //If goes in here its because it is deleting value on input until less than 14 chars
+            btnPlay.disabled = true;
+            popupNameInfo.style.display = "flex";
+        }
+    }else{
+        btnPlay.disabled = true;
+    } 
   }
 
-function  reproducirSecuencia(){      
-    
+function  reproducirSecuencia(){          
     playerClicksCounter = 0;
     for (var i = 0; i < gameSequenceArray.length; i++) {
         if(gameSequenceArray[i] == parseInt(btnRed.id)){
@@ -141,6 +192,9 @@ btnRed.addEventListener("click", function(){
     playerClicksCounter += 1;
     if(gameSequenceArray[playerClicksCounter - 1] != parseInt(btnRed.id)){
         finalizarJuego();
+        clearInterval(progressInterval);
+        progressBar.style.width = '100%';
+        progressBar.style.backgroundColor = "darkgreen";
     }else{
         actualScore += 1;
         labelScore.textContent = actualScore;
@@ -148,6 +202,10 @@ btnRed.addEventListener("click", function(){
     
     if(playerClicksCounter == gameSequenceArray.length && playerClicksCounter != 0){
         winnerLayerElement.style.display = "flex";
+        
+        clearInterval(progressInterval);
+        progressBar.style.width = '100%';
+        progressBar.style.backgroundColor = "darkgreen";
 
         setTimeout(() => {
             winnerLayerElement.style.display = "none";
@@ -156,6 +214,7 @@ btnRed.addEventListener("click", function(){
             armarSecuencia()
         }, 1500);
     }    
+    calcularPenalizacion();
 });
 
 btnRed.addEventListener("mousedown", function() {
@@ -172,6 +231,9 @@ btnBlue.addEventListener("click", function(){
     playerClicksCounter += 1;
     if(gameSequenceArray[playerClicksCounter - 1] != parseInt(btnBlue.id)){
         finalizarJuego();
+        clearInterval(progressInterval);
+        progressBar.style.width = '100%';
+        progressBar.style.backgroundColor = "darkgreen";
     }else{
         actualScore += 1;
         labelScore.textContent = actualScore;
@@ -179,6 +241,10 @@ btnBlue.addEventListener("click", function(){
     
     if(playerClicksCounter == gameSequenceArray.length && playerClicksCounter != 0){
         winnerLayerElement.style.display = "flex";
+       
+        clearInterval(progressInterval);
+        progressBar.style.width = '100%';
+        progressBar.style.backgroundColor = "darkgreen";
 
         setTimeout(() => {
             winnerLayerElement.style.display = "none";
@@ -187,6 +253,7 @@ btnBlue.addEventListener("click", function(){
             armarSecuencia()
         }, 1500);
     }    
+    calcularPenalizacion();
 });
 
 btnBlue.addEventListener("mousedown", function() {
@@ -203,6 +270,9 @@ btnGreen.addEventListener("click", function(){
     playerClicksCounter += 1;
     if(gameSequenceArray[playerClicksCounter - 1] != parseInt(btnGreen.id)){
         finalizarJuego();
+        clearInterval(progressInterval);
+        progressBar.style.width = '100%';
+        progressBar.style.backgroundColor = "darkgreen";                        
     }else{
         actualScore += 1;
         labelScore.textContent = actualScore;
@@ -210,7 +280,11 @@ btnGreen.addEventListener("click", function(){
     
     if(playerClicksCounter == gameSequenceArray.length && playerClicksCounter != 0){
         winnerLayerElement.style.display = "flex";
-
+        
+        clearInterval(progressInterval);
+        progressBar.style.width = '100%';
+        progressBar.style.backgroundColor = "darkgreen";
+        
         setTimeout(() => {
             winnerLayerElement.style.display = "none";
         }, 900);
@@ -218,6 +292,7 @@ btnGreen.addEventListener("click", function(){
             armarSecuencia()        
         }, 1500);
     }    
+    calcularPenalizacion();
 });
 
 btnGreen.addEventListener("mousedown", function() {
@@ -235,12 +310,19 @@ btnYellow.addEventListener("click", function(){
     playerClicksCounter += 1;
     if(gameSequenceArray[playerClicksCounter - 1] != parseInt(btnYellow.id)){
         finalizarJuego();
+        clearInterval(progressInterval);
+        progressBar.style.width = '100%';
+        progressBar.style.backgroundColor = "darkgreen";
     }else{
         actualScore += 1;
         labelScore.textContent = actualScore;
     }
     if(playerClicksCounter == gameSequenceArray.length && playerClicksCounter != 0){
         winnerLayerElement.style.display = "flex";
+        
+       clearInterval(progressInterval);
+       progressBar.style.width = '100%';
+       progressBar.style.backgroundColor = "darkgreen";
 
         setTimeout(() => {
             winnerLayerElement.style.display = "none";
@@ -249,6 +331,7 @@ btnYellow.addEventListener("click", function(){
             armarSecuencia()
         }, 1500);
     }    
+    calcularPenalizacion();
 });
 
 btnYellow.addEventListener("mousedown", function() {
@@ -260,9 +343,16 @@ btnYellow.addEventListener("mousedown", function() {
     btnYellow.classList.remove("transition-active-yellow");
   });
 
+function calcularPenalizacion(){
+    var porcentageToTake = ((totalSequenceTime + (level-1)) - secondsLeft)
+    amountToTakeFromActualScore = (actualScore * porcentageToTake) / 100; 
+    actualScore = actualScore - amountToTakeFromActualScore;
+    actualScore = actualScore.toFixed(2);
+}
+
 function finalizarJuego(){
     looserLayerElement.style.display = "flex";
-
+    input.disabled = false;
     setTimeout(() => {
         looserLayerElement.style.display = "none";
     }, 900);
@@ -314,9 +404,12 @@ function finalizarJuego(){
     labelScore.textContent = actualScore;    
 }
 
-btnClosePopup.addEventListener('click', function() {
-    popupLooser.style.display = 'none';
-    btnPlay.disabled = false;
+btnGameOverClosePopup.addEventListener('click', function() {
+    popupLooser.style.display = 'none';    
+    btnPlay.disabled = false; 
+  });
+  btnNameInfoClosePopup.addEventListener('click', function() {       
+    popupNameInfo.style.display = 'none'; 
   });
 
   btnReset.addEventListener('click', function() {
@@ -325,3 +418,5 @@ btnClosePopup.addEventListener('click', function() {
     labelHighestScoreSaved.textContent = "";    
     labelHighestLevelSaved.textContent = "";
   });
+
+  //EL PARRAL ---- ESCAURIZA (mesa en la ventana mirando al rio)

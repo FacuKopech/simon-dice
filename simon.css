@@ -351,6 +351,12 @@ main{
       right: 0;
     }
   }
+  .progress-bar {
+    width: fit-content;     
+    height: 30px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
 
 .divActualScore{
     display: flex;
@@ -373,7 +379,19 @@ main{
     width: -webkit-fill-available;
     z-index: 1000;
 }
- .popup-content{
+
+.popupNameInfoContainer{
+  display: none;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;    
+    position: absolute;
+    justify-content: center; 
+    width: -webkit-fill-available;
+    text-align: center;
+    z-index: 1000;
+}
+ .popupGameOver-content{
     width: fit-content;
     background-color:#0B2447;
     border-radius: 14px;
@@ -383,12 +401,33 @@ main{
     font-size: larger;
     
  }
+ .popupGameOver-content h2{
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
- .popup-content h2{
+ .popupNameInfo-content{
+  max-width: 236px;
+  background-color:#0B2447;
+  border-radius: 14px;
+  font-family: 'Silkscreen', cursive;
+  color:rgb(208, 208, 9);
+  font-weight: 100;
+  font-size: larger;
+  
+}
+
+ .popupNameInfo-content h2{
     display: flex;
     justify-content: center;
     margin-left: 10px;
     margin-right: 10px;
+ }
+
+ .infoIcon{
+  width: 68px;
  }
 
  .divPuntajeAlcanzado{
