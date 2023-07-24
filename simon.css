@@ -80,7 +80,7 @@ main{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    font-family: 'Oleo Script', cursive;
+    font-family: 'Silkscreen', cursive;
     color: #00cba4;
     font-weight: 100;
     font-size: larger;
@@ -197,7 +197,7 @@ main{
     margin-left: 15px;
 }
 
-.btnReset{
+.btnWAnimation{
     --btn-default-bg: rgb(41, 41, 41);
     --btn-padding: 15px 20px;
     --btn-hover-bg: rgb(51, 51, 51);
@@ -214,7 +214,7 @@ main{
   }
     
   
-  .btnReset{
+  .btnWAnimation{
     box-sizing: border-box;
     padding: var(--btn-padding);
     display: flex;
@@ -230,7 +230,7 @@ main{
     box-shadow: var(--btn-shadow);
   }
   
-  .btnReset span {
+  .btnWAnimation span {
     letter-spacing: var(--btn-letter-spacing);
     transition: var(--btn-transition);
     box-sizing: border-box;
@@ -238,22 +238,22 @@ main{
     background: inherit;
   }
   
-  .btnReset span::before {
+  .btnWAnimation span::before {
     box-sizing: border-box;
     position: absolute;
     content: "";
     background: inherit;
   }
   
-  .btnReset:hover, .btnReset:focus {
+  .btnWAnimation:hover, .btnWAnimation:focus {
     background: var(--btn-hover-bg);
   }
   
-  .btnReset:hover span, .btnReset:focus span {
+  .btnWAnimation:hover span, .btnWAnimation:focus span {
     color: var(--hover-btn-color);
   }
   
-  .btnReset:hover span::before, .btnReset:focus span::before {
+  .btnWAnimation:hover span::before, .btnWAnimation:focus span::before {
     animation: chitchat linear both var(--btn-animation-duration);
   }
   
@@ -391,6 +391,18 @@ main{
     text-align: center;
     z-index: 1000;
 }
+
+
+.popupRankingContainer{
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;    
+  position: absolute;
+  justify-content: center; 
+  width: -webkit-fill-available;
+  z-index: 1000;
+}
  .popupGameOver-content{
     width: fit-content;
     background-color:#0B2447;
@@ -398,10 +410,10 @@ main{
     font-family: 'Silkscreen', cursive;
     color:rgb(197, 36, 36);
     font-weight: 100;
-    font-size: larger;
-    
+    font-size: larger;    
  }
- .popupGameOver-content h2{
+
+ div h2{
   display: flex;
   justify-content: center;
   margin-left: 10px;
@@ -419,12 +431,53 @@ main{
   
 }
 
- .popupNameInfo-content h2{
-    display: flex;
-    justify-content: center;
-    margin-left: 10px;
-    margin-right: 10px;
- }
+ .popupRanking-content{
+  width: 75%;
+  background-color:#0B2447;
+  border-radius: 14px;
+  font-family: 'Silkscreen', cursive;
+  color:#87BCDE;
+  font-weight: 100;
+  font-size: larger;
+  
+}
+
+.divTableHeader{
+  display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.hrTable{
+  width: 92%;
+  border: 2px #343436 solid;
+}
+
+.divRowDataContainer{
+  display: flex;
+  flex-direction: column;    
+}
+
+.divLabelsContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.labelPlayer{
+  max-width: 40px;
+}
+
+.labelSeconds{
+  display: flex;
+  margin-right: -55px;
+}
+
+.labelDate{
+  display: flex;
+  width: 55px;
+}
 
  .infoIcon{
   width: 68px;
