@@ -8,7 +8,9 @@ levelDisplay = document.querySelector('h6[id="h6LevelDisplay"]');
 labelScore = document.querySelector('label[id="labelScore"]');
 labelScoreGameOver = document.querySelector('label[id="labelScoreGameOver"]');
 labelHighestScoreSaved = document.querySelector('label[id="highestScoreSaved"]');
+labelOwnerHighestScoreSaved = document.querySelector('label[id="ownerHighestScoreSavedLabel"]');
 labelHighestLevelSaved = document.querySelector('label[id="highestLevelSaved"]');
+labelOwnerHighestLevelSaved = document.querySelector('label[id="ownerHighestLevelSavedLabel"]');
 input = document.getElementById("textInput");
 title = document.getElementById("welcomeTitle");
 titlePopup = document.getElementById("popupTitle");
@@ -18,6 +20,7 @@ popupRanking = document.getElementById('popupRanking');
 btnGameOverClosePopup = document.getElementById('closeGameOverPopupBtn');
 btnNameInfoClosePopup = document.getElementById('closeNameInfoPopupBtn');
 btnRankingClosePopup = document.getElementById('closeRankingPopupBtn');
+btnContact = document.getElementById('contactBtn');
 rowDataContainer = document.getElementById('rowDataContainer');
 btnReset = document.getElementById('btnReset');
 btnRanking = document.getElementById('btnRanking');
@@ -73,20 +76,29 @@ function updateProgressBar(secondsLeft) {
   }
 }
 
-
-
 window.onload = function() {    
     popupNameInfo.style.display = "flex";
-    var highestScore = localStorage.getItem('highScore');
-    labelHighestScoreSaved.textContent = highestScore;
-    var highLevel = localStorage.getItem('highLevel');
-    labelHighestLevelSaved.textContent = highLevel;
+    if(localStorage.getItem('Game') != null && localStorage.getItem('Game') >= 1){
+        var highestScore = localStorage.getItem('highestScore');
+        labelHighestScoreSaved.textContent = parseInt(highestScore).toFixed(2);
+        var ownerHighestScore = localStorage.getItem('ownerHighestScore');
+        labelOwnerHighestScoreSaved.textContent = ownerHighestScore;
+        var highestLevel = localStorage.getItem('highestLevel');
+        labelHighestLevelSaved.textContent = highestLevel;
+        var ownerHighestLevel = localStorage.getItem('ownerHighestLevel');
+        labelOwnerHighestLevelSaved.textContent = ownerHighestLevel;
+    }
+    
     btnPlay.disabled = true;
     btnRed.disabled = true;
     btnBlue.disabled = true;
     btnGreen.disabled = true;
     btnYellow.disabled = true;     
   };
+
+  btnContact.addEventListener("click", function(){
+    window.open('contactPage.html', '_blank');
+  });
 btnPlay.addEventListener("click", function() {  
     getDate();
     input.disabled = true;  
@@ -409,6 +421,7 @@ function finalizarJuego(){
     audioGameOver.play();
 
     saveGameDataInLocalStorage();
+    calculateHighestLevelAndScoreSaved();
     
     level = 1;    
     actualScore = 0;
@@ -431,6 +444,44 @@ function saveGameDataInLocalStorage(){
     localStorage.setItem(`Game: ${gameNumber} - Date`, gameDate);
     
     console.log(localStorage.getItem('Game'));    
+}
+
+function calculateHighestLevelAndScoreSaved(){
+    gameNumber = localStorage.getItem('Game');
+    if(gameNumber != null){
+        var highestScore = 0;
+        var highestScoreBelongsTo = null;
+        var highestLevel = 0;
+        var highestLevelBelongsTo = null;
+        for (let i = 1; i <= gameNumber; i++) {    
+            if(i == 1){
+                highestScore = localStorage.getItem(`Game: ${1} - Score`);
+                highestScoreBelongsTo = localStorage.getItem(`Game: ${1} - Player`);
+                highestLevel = localStorage.getItem(`Game: ${1} - Highest level reached`);
+                highestLevelBelongsTo = localStorage.getItem(`Game: ${1} - Player`);
+            }else{
+                if(localStorage.getItem(`Game: ${i} - Score`) > highestScore){
+                    highestScore = localStorage.getItem(`Game: ${i} - Score`);
+                    highestScoreBelongsTo = localStorage.getItem(`Game: ${i} - Player`);
+                }
+
+                if(localStorage.getItem(`Game: ${i} - Highest level reached`) > highestLevel){
+                    highestLevel = localStorage.getItem(`Game: ${i} - Highest level reached`);
+                    highestLevelBelongsTo = localStorage.getItem(`Game: ${i} - Player`);
+                }
+            }
+        }
+    }
+
+    labelHighestScoreSaved.textContent = highestScore;
+    labelOwnerHighestScoreSaved.textContent = highestScoreBelongsTo;
+    labelHighestLevelSaved.textContent = highestLevel;
+    labelOwnerHighestLevelSaved.textContent = highestLevelBelongsTo;
+
+    localStorage.setItem('highestScore', highestScore);
+    localStorage.setItem('ownerHighestScore', highestScoreBelongsTo);
+    localStorage.setItem('highestLevel', highestLevel);
+    localStorage.setItem('ownerHighestLevel', highestLevelBelongsTo);
 }
 
 function orderRankingByScore(){
@@ -519,8 +570,8 @@ function showRankingPopupOrderedByScore(){
             dateLabel.classList.add('labelDate');
             
             playerLabel.textContent = playerItemValue;
-            gameNumberLabel.textContent = arrayOrderedByScore[i];
-            scoreLabel.textContent = scoreItemValue;
+            gameNumberLabel.textContent = arrayOrderedByScore[i];            
+            scoreLabel.textContent =  parseInt(scoreItemValue).toFixed(2);
             levelLabel.textContent = levelItemValue; 
             totalSecondsSpentOnGameLabel.textContent = secondsItemValue;
             dateLabel.textContent = dateItemValue;
@@ -562,8 +613,8 @@ function showRankingPopupOrderedByDate(){
             dateLabel.classList.add('labelDate');
             
             playerLabel.textContent = playerItemValue;
-            gameNumberLabel.textContent = arrayOrderedByDate[i];
-            scoreLabel.textContent = scoreItemValue;
+            gameNumberLabel.textContent = arrayOrderedByDate[i];            
+            scoreLabel.textContent =  parseInt(scoreItemValue).toFixed(2);
             levelLabel.textContent = levelItemValue; 
             totalSecondsSpentOnGameLabel.textContent = secondsItemValue;
             dateLabel.textContent = dateItemValue;
@@ -598,6 +649,10 @@ btnGameOverClosePopup.addEventListener('click', function() {
 
   btnReset.addEventListener('click', function() {
     localStorage.clear();
+    labelHighestScoreSaved.textContent = "";
+    labelOwnerHighestScoreSaved.textContent = "";
+    labelHighestLevelSaved.textContent = "";
+    labelOwnerHighestLevelSaved.textContent = "";  
   });  
 
   btnRanking.addEventListener('click', function() {    

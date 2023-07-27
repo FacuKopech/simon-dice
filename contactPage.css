@@ -1,0 +1,235 @@
+link[rel="icon"] {
+    width: 32pt;
+    height: 32pt;
+  }
+body{
+    background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  resize: both;
+  overflow: auto;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0 auto; 
+}
+header{
+    height: 50px;
+}
+.navCustom{
+  display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: #373737;
+    height: 100%;    
+    
+}
+
+.divNavTitleContainer{
+    display: flex;
+    flex-direction: row;    
+    width: 100%;
+    justify-content: center;
+}
+
+.navCustom p{
+    font-family: 'Oleo Script', cursive;
+    color: white;
+    font-weight: 400;
+}
+
+.divSimonIcon{
+    display: flex;
+    justify-content: center;
+    width: 4%;
+    margin-top: 2px;
+}
+
+.divSimonIcon svg{
+    width: 60pt;
+    height: 33pt;
+    margin-left: -1px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 100%;
+    min-height: 90.8vh;
+    margin: 0 auto;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    resize: both;
+    overflow: auto;
+    background-color: #274156;
+    
+}
+
+.divMainTitle{
+    display: flex;
+    justify-content: center;
+}
+.divMainTitle p{
+    font-weight: bold;
+    font-size: xx-large;
+    font-family: 'Oleo Script', cursive;
+    color: aliceblue;
+}
+
+.divFormContainer{
+    display: flex;
+    justify-content: center;
+}
+.form{     
+    display: flex;
+    background-color: #373737;
+    height: fit-content;    
+    width: fit-content;
+    justify-content: center;
+    border-radius: 15px;
+    border-left: 3px solid #00a74a;
+    border-top: 3px solid #9f0f17;
+    border-right: 3px solid #094a8f;
+    border-bottom: 3px solid #cca707;
+}
+
+.divInputsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 14px;
+}
+
+.divInputsContainer label{
+    font-size: medium;
+    font-weight: 500;
+    font-family: 'Oleo Script', cursive;
+    color:#ccc;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;    
+  }
+
+  .txtAreaMensaje{
+    width: 396px;
+    height: 214px;
+  }
+
+  .divSubmitBtn{
+    display: flex;
+    justify-content: center;
+    height: 190px;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  .divSubmitBtn button{
+    height: fit-content;
+  }
+
+  .submit {
+    width: 140px;
+    height: auto;
+    float: left;
+    transition: .5s linear;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    margin: 0 5px;
+    background: transparent;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+  
+  .submit:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 100%;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(100%);
+  }
+  
+  .submit:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-top: 4px solid transparent;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+  }
+  
+  .submit:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .submit:hover:before {
+    border-color: #262626;
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .3s;
+  }
+  
+  .submit:hover:after {
+    border-color: #262626;
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .5s;
+  }
+  
+  button {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: transparent;
+  }
+
+footer{
+    height: 69px;
+    min-height: 5vh;
+    margin: 0 auto;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    resize: both;
+    overflow: auto;
+    background-color: #373737;
+    display: flex;
+    justify-content: center;
+  }
+
+  .divFooterText{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    font-family: 'Oleo Script', cursive;
+    color: white;
+    font-weight: 400;
+    font-size: x-large;
+  }
+
+  .divFooterText svg{
+    align-self: center;
+  }
