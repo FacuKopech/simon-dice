@@ -99,7 +99,7 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 100%;
+    width: 64vw;
     margin: 14px;
 }
 
@@ -111,7 +111,7 @@ main{
 }
 
 input[type=text] {
-    width: 100%;
+    width: 64vw;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -121,7 +121,7 @@ input[type=text] {
   }
 
   .txtAreaMensaje{
-    width: 396px;
+    width: 64vw;
     height: 214px;
   }
 

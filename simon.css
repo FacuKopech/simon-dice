@@ -26,6 +26,7 @@ header{
   display: flex;
   justify-content: center;
   width: 90%;
+  margin-left: 42px;
 }
 
 .navCustom p{
@@ -119,6 +120,7 @@ main{
     background-repeat: no-repeat;
     background-size: cover;
     resize: both;
+    position: relative;
     overflow: auto;
     background-color: #274156;
     
@@ -251,7 +253,7 @@ main{
 .divHighestScoreContainer{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: column;    
 }
 
 .divHighestScoreSaved{
@@ -281,7 +283,7 @@ main{
 .divHighestLevelContainer{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: column;    
 }
 
 .divMaximumLevelAchieved{
@@ -463,7 +465,7 @@ main{
     }
   }
   .progress-bar {
-    width: fit-content;     
+    width: fit-content;          
     height: 30px;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
@@ -559,6 +561,7 @@ main{
     flex-direction: row;
     justify-content: space-around;
     margin-bottom: 10px;
+    background-color: darkcyan;
 }
 
 .hrTable{
@@ -681,11 +684,15 @@ main{
 
 .divGameContainer{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
     align-content: center;
     height: auto;
     margin-bottom: 40px;
+    font-family: 'Silkscreen', cursive;
+    color: #00cba4;
+    font-weight: 100;
+    font-size: larger;
 }
 
 .divBtnContainer{
@@ -808,36 +815,50 @@ main{
   .divFooterText svg{
     align-self: center;
   }
+
+  .divRightData{
+    width: 19%;
+  }
   
-  @media screen and (max-width: 730px) {    
-    .divContainerData {
+  @media screen and (max-width: 1400px) {    
+    .divGameContainer {
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
       align-content: center;
       
     }
-    .divTitle{
-        order: 1;
-       
+    .progress-bar {
+      max-width: 40%;
     }
-
+    .divHighestScoreContainer{
+      width: 65%;
+    }
+  .divHighestLevelContainer{
+    width: 65%;
+  }
     .divTitle{
       text-align: center;
     }
     .divLeftData{
-        order: 2;
+        order: 3;
         display: flex;
         flex-direction: column;
         align-items: center;
         width: auto;
     }
+
+    .divBtnContainer{
+      order: 2;
+    }
   
     .divRightData{
-        order: 3;
+        order: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 10px;  
+        width: auto;
+        margin-top: -80px;      
     }
   }

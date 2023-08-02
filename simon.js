@@ -57,9 +57,16 @@ var gameDate = null;
 var gameNumber = 0;
 var totalSecondsTaken = 0;
 
+function updateCustomWidth() {
+    var screenWidth = window.innerWidth;    
+    var calculatedWidth = (60 * screenWidth) / 100 + '%';
+    document.documentElement.style.setProperty('--desired-width', calculatedWidth);
+  }
+  window.addEventListener('resize', updateCustomWidth);
+
 function updateProgressBar(secondsLeft) {    
     var progressPercentage = (secondsLeft / (totalSequenceTime + (level-1))) * 100;
-    progressBar.style.width = `${progressPercentage}%`;
+    progressBar.style.width = `${progressPercentage-10}%`;
     console.log(secondsLeft,progressPercentage);
   if (secondsLeft <= 0) {
     clearInterval(progressInterval);
