@@ -514,7 +514,7 @@ main{
   align-content: center;    
   position: absolute;
   justify-content: center; 
-  width: -webkit-fill-available;
+  width: 100%;
   z-index: 1000;
 }
  .popupGameOver-content{
@@ -546,7 +546,7 @@ main{
 }
 
  .popupRanking-content{
-  width: 75%;
+  width: 800px;
   background-color:#0B2447;
   border-radius: 14px;
   font-family: 'Silkscreen', cursive;
@@ -752,12 +752,7 @@ main{
     height: 300px;
 }
 
-#btnPlay{
-  display: flex;
-    text-align: center;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
+#btnPlay{  
     background-color: #343436;
     border-radius: 50%;   
     color: white;
@@ -883,4 +878,12 @@ main{
     width: 25%;
     height: 15%;
   }    
+
+  .popupRankingContainer{   
+    width: 100%;    
+  }
+
+  .popupRanking-content{
+    width: 144%;
+  }
 }
