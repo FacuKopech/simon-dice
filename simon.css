@@ -753,6 +753,11 @@ main{
 }
 
 #btnPlay{  
+  text-align: center;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-content: center;    
     background-color: #343436;
     border-radius: 50%;   
     color: white;
@@ -878,6 +883,10 @@ main{
     width: 25%;
     height: 15%;
   }    
+
+  #btnPlay{
+    width: fit-content;
+  }
 
   .popupRankingContainer{   
     width: 100%;    
