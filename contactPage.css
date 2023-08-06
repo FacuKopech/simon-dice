@@ -236,3 +236,17 @@ footer{
   .divFooterText svg{
     align-self: center;
   }
+
+  @media screen and (max-width: 300px) {    
+    .divInputsContainer{
+        width: 30vw;
+    }
+
+    input[type=text] {
+        width: 30vw;            
+    }
+    
+    .txtAreaMensaje{
+        width: 30vw;        
+    }    
+  }
