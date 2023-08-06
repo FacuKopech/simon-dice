@@ -455,12 +455,15 @@ function updateProgressBar(secondsLeft) {  //updates the progress bar every seco
     progressBar.style.width = '0%';    
     GameOver();
   }
-  if(progressPercentage <= 50){    
-    progressBar.style.backgroundColor = "red";
-    labelSeconds.style.color = "red";
-  }else{
+  if(progressPercentage <= 50 && progressPercentage >= 20){    
+    progressBar.style.backgroundColor = "yellow";
+    labelSeconds.style.color = "yellow";
+  }else if(progressPercentage > 50){
     progressBar.style.backgroundColor = "darkgreen";
     labelSeconds.style.color = "darkgreen";
+  }else if(progressPercentage < 20){
+    progressBar.style.backgroundColor = "red";
+    labelSeconds.style.color = "red";
   }
 }
 

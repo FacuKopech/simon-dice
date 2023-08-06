@@ -464,7 +464,7 @@ main{
       right: 0;
     }
   }
-  .progress-bar {
+  .divProgress-bar {
     width: fit-content;          
     height: 30px;
     border: 1px solid #ccc;
