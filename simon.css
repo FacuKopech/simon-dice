@@ -598,7 +598,7 @@ main{
   width: 68px;
  }
 
- .divPuntajeAlcanzado{
+ .divScoreAchieved{
     display: flex;
     justify-content: center;
     margin-right: 10px;
@@ -817,7 +817,7 @@ main{
   }
 
   .divRightData{
-    width: 19%;
+    width: 16%;
   }
   
   @media screen and (max-width: 1400px) {    
@@ -828,7 +828,7 @@ main{
       align-content: center;
       
     }
-    .progress-bar {
+    .divProgress-bar {
       max-width: 40%;
     }
     .divHighestScoreContainer{
