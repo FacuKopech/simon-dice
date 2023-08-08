@@ -1,5 +1,4 @@
 /* ELEMENT SELECTORS */
-
 link[rel="icon"] {
     height: 32pt;
     width: 32pt;
@@ -12,12 +11,12 @@ link[rel="icon"] {
     margin: 0 auto;
     min-height: 100vh;
     overflow: auto;
-    resize: both;  
+    resize: both;
   }
   header {
     height: 50px;
   }
-
+  
   main {
     background-color: #274156;
     background-position: bottom;
@@ -31,9 +30,9 @@ link[rel="icon"] {
     margin: 0 auto;
     min-height: 90.8vh;
     overflow: auto;
-    resize: both;  
+    resize: both;
   }
-
+  
   input[type="text"] {
     width: 26vw;
     max-width: 30vw;
@@ -44,14 +43,14 @@ link[rel="icon"] {
     border-radius: 4px;
     box-sizing: border-box;
   }
-
+  
   button {
     background: transparent;
     border: none;
     color: #000000;
     cursor: pointer;
     outline: none;
-    text-decoration: none;        
+    text-decoration: none;
   }
   
   footer {
@@ -65,11 +64,10 @@ link[rel="icon"] {
     margin: 0 auto;
     min-height: 5vh;
     overflow: auto;
-    resize: both;      
+    resize: both;
   }
-
-/* PSEUDO-SELECTORS */
-
+  
+  /* PSEUDO-SELECTORS */
   .submit:before {
     border-bottom: 4px solid transparent;
     border-left: 4px solid transparent;
@@ -80,7 +78,7 @@ link[rel="icon"] {
     left: 0;
     position: absolute;
     transform: translateX(100%);
-    width: 100%;    
+    width: 100%;
   }
   
   .submit:after {
@@ -93,7 +91,7 @@ link[rel="icon"] {
     position: absolute;
     top: 0;
     transform: translateX(-100%);
-    width: 100%;         
+    width: 100%;
   }
   
   .submit:hover {
@@ -113,14 +111,14 @@ link[rel="icon"] {
     transform: translateX(0);
     transition: 0.3s transform linear, 0.3s height linear 0.5s;
   }
-/* CLASS SELECTORS */
-
+  
+  /* CLASS SELECTORS */  
   .navCustom {
     background-color: #373737;
     display: flex;
     flex-direction: row;
     height: 100%;
-    justify-content: center;    
+    justify-content: center;
   }
   
   .divNavTitleContainer {
@@ -129,18 +127,17 @@ link[rel="icon"] {
     justify-content: center;
     width: 100%;
   }
-
-   
+  
   .divMainTitle {
     display: flex;
     justify-content: center;
   }
-
+  
   .divFormContainer {
     display: flex;
     justify-content: center;
   }
-
+  
   .formContact {
     background-color: #373737;
     border-bottom: 3px solid #cca707;
@@ -151,9 +148,9 @@ link[rel="icon"] {
     display: flex;
     height: fit-content;
     justify-content: center;
-    width: fit-content; 
+    width: fit-content;
   }
-
+  
   .divInputsContainer {
     display: flex;
     flex-direction: column;
@@ -162,13 +159,13 @@ link[rel="icon"] {
     max-width: 30vw;
     width: 26vw;
   }
-
+  
   .txtAreaMensaje {
     height: 214px;
     max-width: 30vw;
     width: 26vw;
   }
-
+  
   .divSubmitBtn {
     align-content: center;
     display: flex;
@@ -176,24 +173,23 @@ link[rel="icon"] {
     height: 190px;
     justify-content: center;
   }
-
-    
+  
   .submit {
-    background: transparent;  
-    display: block;   
+    background: transparent;
+    display: block;
     float: left;
     font-weight: 900;
     height: auto;
-    margin: 0 5px;    
+    margin: 0 5px;
     overflow: hidden;
     padding: 15px;
     position: relative;
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s linear;
-    width: 140px;    
+    width: 140px;
   }
-
+  
   .divFooterText {
     align-content: center;
     color: #ffffff;
@@ -202,26 +198,22 @@ link[rel="icon"] {
     font-family: "Oleo Script", cursive;
     font-size: x-large;
     font-weight: 400;
-    justify-content: center;                
+    justify-content: center;
   }
   
-  /* COMPOSED SELECTORS */
-
+  /* COMPOSED SELECTORS */  
   .navCustom p {
     color: #ffffff;
     font-family: "Oleo Script", cursive;
     font-weight: 400;
   }
   
- 
- 
   .divMainTitle p {
     color: #f0f8ff;
     font-family: "Oleo Script", cursive;
     font-size: xx-large;
     font-weight: bold;
   }
-  
   
   .divInputsContainer label {
     color: #ccc;
@@ -230,11 +222,9 @@ link[rel="icon"] {
     font-weight: 500;
   }
   
-
   .divSubmitBtn button {
     height: fit-content;
   }
-
   
   @media screen and (max-width: 300px) {
     .divInputsContainer {
@@ -248,4 +238,5 @@ link[rel="icon"] {
     .txtAreaMensaje {
       width: 30vw;
     }
-  }  
+  }
+  
