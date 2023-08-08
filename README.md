@@ -17,9 +17,17 @@
 
 ## Ranking
 ### El jugador puede oprimir en el boton 'Ranking' para visualizar las partidas que ha jugado, junto con el numero de partida, nombre del jugador, el puntaje obtenido, el maximo nivel al cual ha llegado en dicha partida, la cantidad de segundos que demoro en todas las secuencias, y la fecha.
-![image](https://github.com/FacuKopech/simon-dice/assets/63883859/f9f6d22a-7e0f-4356-8ec8-711727ab8c56)
+![image](https://github.com/FacuKopech/simon-dice/assets/63883859/1aead99a-b92f-46cf-b60c-c772cee5c259)
 
 ### No solo se visualizara sus partidas, sino la de todos los jugadores que ingresen su nombre en el campo de mas arriba. De esta forma, el jugador puede competir con sus amigos y todos llevar un registro de quien ha sido el mas victorioso!
+
+### Ademas, es posible ordenar el Ranking por puntaje (por defecto) o si se oprime la etiqueta con el titulo 'Fecha', el popup del Ranking se ordenara por fecha de mayor a menor. Oprimiendo la etiqueta con el titulo 'Puntaje', se retornara al orden original, es decir, por puntaje de mayor a menor.
+
+#### Ranking ordenado por puntaje (mayor a menor)
+![image](https://github.com/FacuKopech/simon-dice/assets/63883859/b6b24b2d-7f2a-4c42-83bf-da679ef77775)
+
+#### Ranking ordenado por fecha (mayor a menor)
+![image](https://github.com/FacuKopech/simon-dice/assets/63883859/4dcc8f4c-15f5-4b37-abf8-e2f39b168c3f)
 
 ## Maximos valores
 ### En el lado izquierdo del tablero, se puede visualizar los maximos valores alcanzados. Esto indica:
