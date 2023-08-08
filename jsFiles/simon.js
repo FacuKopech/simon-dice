@@ -554,7 +554,7 @@ btnPlay.addEventListener("click", function() {
 
 //btnContact Event
 btnContact.addEventListener("click", function() {
-    window.open("contactPage.html", "_blank");
+    window.open("./htmlContactPage/contactPage.html", "_blank");
 });
 
 //btnRed Events
