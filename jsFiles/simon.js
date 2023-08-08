@@ -307,7 +307,7 @@ function getDate() { //gets the current Date to save in Local Storage for Rankin
     var currentDate = new Date();
     var year = currentDate.getFullYear();
     var month = currentDate.getMonth() + 1;
-    var day = currentDate.getDay();
+    var day = currentDate.getDate();
     var hours = currentDate.getHours();
     var minutes = currentDate.getMinutes();
     var seconds = currentDate.getSeconds();
