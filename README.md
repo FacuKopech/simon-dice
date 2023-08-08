@@ -28,6 +28,10 @@
 * El maximo nivel alcanzado
 * A quien pertenece el maximo nivel alcanzado
 
+![image](https://github.com/FacuKopech/simon-dice/assets/63883859/ab26dd7c-a465-46eb-a2de-3c2c93a3d153)
+
+### Si asi lo desea, el jugador puede oprimir el boton 'Resetear', para eliminar absolutamente todos los datos guardados y eliminar el Ranking, comenzando desde cero.
+
 ## Contacto
 
 ### Si el jugador dispone de alguna queja o comentario sobre el juego, en la esquina superior derecha se encuentra un boton de 'Contacto':
