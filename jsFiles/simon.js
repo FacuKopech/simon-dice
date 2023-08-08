@@ -333,7 +333,7 @@ function calculatePenalization() { //if player took 2 seconds for example out of
         actualScore = (actualScore * 100) / 100; //result with two decimals
         labelScore.textContent = actualScore;
     } else { // if the sequence was NOT completed correctly, the penalization applies only to the amount of correct clicks in that level        
-        totalOfCorrectClicksUntilMistake = level - 1;
+        totalOfCorrectClicksUntilMistake = playerClicksCounter - 1;
         porcentageToTake = ((totalSequenceTime + (level - 1)) - secondsLeft);
         totalSecondsTaken = totalSecondsTaken + porcentageToTake;
         amountToTakeFromActualScore = (porcentageToTake * totalOfCorrectClicksUntilMistake) / 100;
