@@ -1,7 +1,7 @@
 //HTML ELEMENTS
 var fullName = document.getElementById("fname");
 var email = document.querySelector('input[id="email"]');
-var message = document.getElementById("message");;
+var message = document.getElementById("message");
 var fullNameError = document.querySelector('span[id="nameError"]');
 var emailError = document.querySelector('span[id="emailError"]');
 var messageError = document.querySelector('span[id="messageError"]'); 
@@ -61,17 +61,17 @@ message.addEventListener("focus", (event) => {
 
 //btnSubmit Event
 btnSubmit.addEventListener("click", function(){
-    if(fullName.value == ""){        
+    if(fullName.value === ""){        
         fullNameError.textContent = "Debe ingresar su nombre!";
         fullNameError.style.display = "flex";
         fullNameError.style.color  = "red";     
         fullNameError.style.fontWeight = "bold";  
-    }else if(email.value == ""){
+    }else if(email.value === ""){
         emailError.textContent = "Debe ingresar un Email!";
         emailError.style.display = "flex";
         emailError.style.color  = "red";     
         emailError.style.fontWeight = "bold";  
-    }else if(message.value == ""){
+    }else if(message.value === ""){
         messageError.textContent = "Debe ingresar un mensaje!";
         messageError.style.display = "flex";
         messageError.style.color  = "red";     

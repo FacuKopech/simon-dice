@@ -361,8 +361,7 @@ function buildSequence(){  //builds the sequence of buttons to repeat
     labelSeconds.textContent = `${secondsLeft} seg`;
     reproduceSequence();
     var sequenceDuration = 1500 * gameSequenceArray.length;
-    setTimeout(function() {
-       
+    setTimeout(function() {       
         progressInterval = setInterval(() => {
             secondsLeft--;
             updateProgressBar(secondsLeft);
