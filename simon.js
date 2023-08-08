@@ -31,8 +31,8 @@ var scoreLabelHeader = document.getElementById("scoreLabelHeader");
 var dateLabelHeader = document.getElementById("dateLabelHeader");
 
 //LAYERS
-var looserLayerElement = document.querySelector(".color-layer-looser");
-var winnerLayerElement = document.querySelector(".color-layer-winner");
+var looserLayerElement = document.querySelector(".divColorLayerLooser");
+var winnerLayerElement = document.querySelector(".divColorLayerWinner");
 
 //TITLES
 var title = document.getElementById("welcomeTitle");

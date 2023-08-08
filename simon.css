@@ -35,81 +35,20 @@ header{
     font-weight: 400;
 }
 
-.divSimonIcon{
-    display: flex;
-    justify-content: center;
-    width: 4%;
-    margin-top: 2px;
-}
-
-.divSimonIcon svg{
-    width: 60pt;
-    height: 33pt;
-    margin-left: -1px;
-}
-
-.contact-button {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgb(20, 20, 20);
-  border: none;
-  font-weight: 600;
+.btnContactButton{
   display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
-  cursor: pointer;
-  transition-duration: 0.3s;
-  overflow: hidden;
-  position: relative;
-  margin-right: 18px;  
-  margin-top: 4px;
+    background-color: transparent;
+    border: none;
+    font-size: larger;
+    font-weight: 500;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-top: 10px;
 }
 
-.contact-svgIcon {
-  width: 20px;
-  transition-duration: 0.3s;
-}
-
-.contact-svgIcon path {
-  fill: white;
-}
-
-.contact-button:hover {
-  width: 90px;
-  border-radius: 50px;
-  transition-duration: 0.3s;
-  background-color: #077d3c;
-  align-items: center;
-}
-
-.contact-button:hover .contact-svgIcon {
-  width: 20px;
-  transition-duration: 0.3s;
-  transform: translateY(60%);
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  transform: rotate(360deg);
-}
-
-.contact-button::before {
-  display: none;
-  content: "Contacto";
-  color: white;
-  transition-duration: 0.3s;
-  font-size: 2px;
-}
-
-.contact-button:hover::before {
-  display: block;
-  padding-right: 10px;
-  font-size: 13px;
-  opacity: 1;
-  transform: translateY(0px);
-  transition-duration: 0.3s;
+.btnContactButton:hover{
+  background-color: #0B2447;
+  border-radius: 30px;
 }
 
 main{
@@ -198,14 +137,14 @@ main{
     z-index: -1;
   }
   
-  .form-control {
+  .divInputControl {
     display: flex;
     justify-content: center;
     position: relative;    
     width: 100%;
   }
   
-  .form-control input {
+  .divInputControl input {
     background-color: transparent;
     border: 0;
     border-bottom: 2px #fff solid;
@@ -215,31 +154,12 @@ main{
     color: #fff;
   }
   
-  .form-control input:focus,
-  .form-control input:valid {
+  .divInputControl input:focus,
+  .divInputControl input:valid {
     outline: 0;
     border-bottom-color: #00cba4;
   }
   
-  .form-control label {
-    position: absolute;
-    top: 15px;    
-    pointer-events: none;
-  }
-  
-  .form-control label span {
-    display: inline-block;
-    font-size: 18px;
-    min-width: 5px;
-    color: #00cba4;
-    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .form-control input:focus+label span,
-  .form-control input:valid+label span {
-    color: #00cba4;
-    transform: translateY(-30px);
-  }
 
 .divContainerData #h6LevelDisplay{
     font-family: 'Silkscreen', cursive;
@@ -324,10 +244,6 @@ main{
     --font-size: 16px;    
     --font-weight: 600;
     --font-family: Menlo,Roboto Mono,monospace;  
-  }
-    
-  
-  .btnWAnimation{
     box-sizing: border-box;
     padding: var(--btn-padding);
     display: flex;
@@ -341,7 +257,7 @@ main{
     transition: var(--btn-transition);
     overflow: hidden;
     box-shadow: var(--btn-shadow);
-  }
+  }    
   
   .btnWAnimation span {
     letter-spacing: var(--btn-letter-spacing);
@@ -464,7 +380,7 @@ main{
       right: 0;
     }
   }
-  .divProgress-bar {
+  .divProgressBar{
     width: fit-content;          
     height: 30px;
     border: 1px solid #ccc;
@@ -483,7 +399,7 @@ main{
     margin-left: 15px;
 }
 
-.popupLooserContainer{
+.divPopupLooserContainer{
     display: none;
     flex-direction: column;
     flex-wrap: wrap;
@@ -494,7 +410,7 @@ main{
     z-index: 1000;
 }
 
-.popupNameInfoContainer{
+.divPopupNameInfoContainer{
   display: none;
     flex-direction: column;
     flex-wrap: wrap;
@@ -507,7 +423,7 @@ main{
 }
 
 
-.popupRankingContainer{
+.divPopupRankingContainer{
   display: none;
   flex-direction: column;
   flex-wrap: wrap;
@@ -517,7 +433,7 @@ main{
   width: 100%;
   z-index: 1000;
 }
- .popupGameOver-content{
+ .popupGameOverContent{
     width: fit-content;
     background-color:#0B2447;
     border-radius: 14px;
@@ -534,7 +450,7 @@ main{
   margin-right: 10px;
 }
 
- .popupNameInfo-content{
+ .divPopupNameInfoContent{
   max-width: 236px;
   background-color:#0B2447;
   border-radius: 14px;
@@ -545,7 +461,7 @@ main{
   
 }
 
- .popupRanking-content{
+ .divPopupRankingContent{
   width: 800px;
   background-color:#0B2447;
   border-radius: 14px;
@@ -574,6 +490,18 @@ main{
 .divRowDataContainer{
   display: flex;
   flex-direction: column;    
+}
+
+.btnClosePopup{
+  background-color: transparent;
+    border: none;
+    font-size: large;
+    font-weight: 700;
+}
+
+.btnClosePopup:hover{
+  background-color: rgb(240, 7, 7);
+  border-radius: 30px;
 }
 
 .divLabelsContainer{
@@ -615,74 +543,13 @@ main{
     margin-left: 10px;
  }
 
- .popupCloseButton{
+ .divPopupCloseButton{
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
  }
 
- .close-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgb(20, 20, 20);
-    border: none;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
-    cursor: pointer;
-    transition-duration: 0.3s;
-    overflow: hidden;
-    position: relative;
-    margin-right: 18px;
-  }
-  
-  .close-svgIcon {
-    width: 15px;
-    transition-duration: 0.3s;
-  }
-  
-  .close-svgIcon path {
-    fill: white;
-  }
-  
-  .close-button:hover {
-    width: 90px;
-    border-radius: 50px;
-    transition-duration: 0.3s;
-    background-color: rgb(200, 22, 22);
-    align-items: center;
-  }
-  
-  .close-button:hover .close-svgIcon {
-    width: 20px;
-    transition-duration: 0.3s;
-    transform: translateY(60%);
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-  
-  .close-button::before {
-    display: none;
-    content: "Cerrar";
-    color: white;
-    transition-duration: 0.3s;
-    font-size: 2px;
-  }
-  
-  .close-button:hover::before {
-    display: block;
-    padding-right: 10px;
-    font-size: 13px;
-    opacity: 1;
-    transform: translateY(0px);
-    transition-duration: 0.3s;
-  }
+ 
 
 .divGameContainer{
     display: flex;
@@ -716,7 +583,7 @@ main{
     width: 100%;
 }
 
-.gameButton{
+.btnGame{
     width: 252px;
     height: 252px;    
     border: none; 
@@ -819,11 +686,7 @@ main{
     color: white;
     font-weight: 400;
     font-size: x-large;
-  }
-
-  .divFooterText svg{
-    align-self: center;
-  }
+  } 
 
   .divRightData{
     width: 16%;
@@ -837,7 +700,7 @@ main{
       align-content: center;
       
     }
-    .divProgress-bar {
+    .divProgressBar {
       max-width: 40%;
     }
     .divHighestScoreContainer{
@@ -888,11 +751,11 @@ main{
     width: fit-content;
   }
 
-  .popupRankingContainer{   
+  .divPopupRankingContainer{   
     width: 100%;    
   }
 
-  .popupRanking-content{
+  .divPopupRankingContent{
     width: 144%;
   }
 }
