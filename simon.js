@@ -58,8 +58,8 @@ var audioGameOver = new Audio("C:/Users/FacundoKopech/Downloads/loserAudio.mp3")
 //VARIABLES
 
 //arrays
-var gameSequenceArray = [];   
-var playerSequenceArray = [];   
+var gameSequenceArray = [];
+var playerSequenceArray = [];
 var createdElementsForRanking = [];
 var arrayOrderedByScore = [];
 var arrayOrderedByDate = [];
@@ -84,9 +84,9 @@ var playerName = "";
 var gameDate = null;
 
 //ONLOAD EVENT ON WINDOW    
-window.onload = function() {    
+window.onload = function() {
     popupNameInfo.style.display = "flex";
-    if(localStorage.getItem("Game") !== null && localStorage.getItem("Game") >= 1){
+    if (localStorage.getItem("Game") !== null && localStorage.getItem("Game") >= 1) {
         var highestScore = localStorage.getItem("highestScore");
         labelHighestScoreSaved.textContent = highestScore;
         var ownerHighestScore = localStorage.getItem("ownerHighestScore");
@@ -95,21 +95,20 @@ window.onload = function() {
         labelHighestLevelSaved.textContent = highestLevel;
         var ownerHighestLevel = localStorage.getItem("ownerHighestLevel");
         labelOwnerHighestLevelSaved.textContent = ownerHighestLevel;
-    }    
+    }
     btnPlay.disabled = true;
     btnRed.disabled = true;
     btnBlue.disabled = true;
     btnGreen.disabled = true;
-    btnYellow.disabled = true;     
-  };
+    btnYellow.disabled = true;
+};
 
-  //FUNCTIONS
-  function saveGameDataInLocalStorage(){ //saves data in local storage for Ranking
+//FUNCTIONS
+function saveGameDataInLocalStorage() { //saves data in local storage for Ranking
     gameNumber = localStorage.getItem("Game");
-    if(gameNumber === null){
-        gameNumber = 1;        
-    }
-    else{
+    if (gameNumber === null) {
+        gameNumber = 1;
+    } else {
         gameNumber = parseInt(gameNumber) + 1;
     }
     localStorage.setItem("Game", gameNumber);
@@ -117,29 +116,29 @@ window.onload = function() {
     localStorage.setItem(`Game: ${gameNumber} - Score`, actualScore);
     localStorage.setItem(`Game: ${gameNumber} - Highest level reached`, level);
     localStorage.setItem(`Game: ${gameNumber} - Seconds taken`, totalSecondsTaken);
-    localStorage.setItem(`Game: ${gameNumber} - Date`, gameDate);    
+    localStorage.setItem(`Game: ${gameNumber} - Date`, gameDate);
 }
 
-function calculateHighestLevelAndScoreSaved(){ //calculate highest level and score saved to know to which player do the values belong to
+function calculateHighestLevelAndScoreSaved() { //calculate highest level and score saved to know to which player do the values belong to
     gameNumber = localStorage.getItem("Game");
-    if(gameNumber !== null){
+    if (gameNumber !== null) {
         var highestScore = 0;
         var highestScoreBelongsTo = null;
         var highestLevel = 0;
         var highestLevelBelongsTo = null;
-        for (var i = 1; i <= gameNumber; i++) {    
-            if(i === 1){
+        for (var i = 1; i <= gameNumber; i++) {
+            if (i === 1) {
                 highestScore = localStorage.getItem(`Game: ${1} - Score`);
                 highestScoreBelongsTo = localStorage.getItem(`Game: ${1} - Player`);
                 highestLevel = localStorage.getItem(`Game: ${1} - Highest level reached`);
                 highestLevelBelongsTo = localStorage.getItem(`Game: ${1} - Player`);
-            }else{
-                if(localStorage.getItem(`Game: ${i} - Score`) > highestScore){
+            } else {
+                if (localStorage.getItem(`Game: ${i} - Score`) > highestScore) {
                     highestScore = localStorage.getItem(`Game: ${i} - Score`);
                     highestScoreBelongsTo = localStorage.getItem(`Game: ${i} - Player`);
                 }
 
-                if(localStorage.getItem(`Game: ${i} - Highest level reached`) > highestLevel){
+                if (localStorage.getItem(`Game: ${i} - Highest level reached`) > highestLevel) {
                     highestLevel = localStorage.getItem(`Game: ${i} - Highest level reached`);
                     highestLevelBelongsTo = localStorage.getItem(`Game: ${i} - Player`);
                 }
@@ -158,7 +157,7 @@ function calculateHighestLevelAndScoreSaved(){ //calculate highest level and sco
     localStorage.setItem("ownerHighestLevel", highestLevelBelongsTo);
 }
 
-  function GameOver(){ //sets the variables and calls the appropiate methods to prepare for the next Game    
+function GameOver() { //sets the variables and calls the appropiate methods to prepare for the next Game    
     var updatedTitle;
 
     looserLayerElement.style.display = "flex";
@@ -181,101 +180,102 @@ function calculateHighestLevelAndScoreSaved(){ //calculate highest level and sco
     btnBlue.disabled = true;
     btnGreen.disabled = true;
     btnYellow.disabled = true;
-    levelDisplay.textContent = "";    
-    btnPlay.textContent = "JUGAR";        
+    levelDisplay.textContent = "";
+    btnPlay.textContent = "JUGAR";
     audioGameOver.play();
 
     saveGameDataInLocalStorage();
     calculateHighestLevelAndScoreSaved();
-    
-    level = 1;    
+
+    level = 1;
     actualScore = 0;
-    labelScore.textContent = actualScore;    
+    labelScore.textContent = actualScore;
 }
 
-  function updateProgressBar(secondsLeft) {  //updates the progress bar every second
+function updateProgressBar(secondsLeft) { //updates the progress bar every second
     var progressPercentage;
-    progressPercentage = (secondsLeft / (totalSequenceTime + (level-1))) * 100;
-    progressBar.style.width = `${progressPercentage-10}%`;    
-  if (secondsLeft <= 0) {
-    clearInterval(progressInterval);
-    progressBar.style.width = "0%";    
-    GameOver();
-  }
-  if(progressPercentage <= 50 && progressPercentage >= 20){    
-    progressBar.style.backgroundColor = "yellow";
-    labelSeconds.style.color = "yellow";
-  }else if(progressPercentage > 50){
-    progressBar.style.backgroundColor = "darkgreen";
-    labelSeconds.style.color = "darkgreen";
-  }else if(progressPercentage < 20){
-    progressBar.style.backgroundColor = "red";
-    labelSeconds.style.color = "red";
-  }
+    progressPercentage = (secondsLeft / (totalSequenceTime + (level - 1))) * 100;
+    progressBar.style.width = `${progressPercentage-10}%`;
+    if (secondsLeft <= 0) {
+        clearInterval(progressInterval);
+        progressBar.style.width = "0%";
+        GameOver();
+    }
+    if (progressPercentage <= 50 && progressPercentage >= 20) {
+        progressBar.style.backgroundColor = "yellow";
+        labelSeconds.style.color = "yellow";
+    } else if (progressPercentage > 50) {
+        progressBar.style.backgroundColor = "darkgreen";
+        labelSeconds.style.color = "darkgreen";
+    } else if (progressPercentage < 20) {
+        progressBar.style.backgroundColor = "red";
+        labelSeconds.style.color = "red";
+    }
 }
 
-function playRedSoundAndLight(){ //plays sound and light for red button
-    audioRojo.play();      
+function playRedSoundAndLight() { //plays sound and light for red button
+    audioRojo.play();
     btnRed.classList.add("transition-active-red");
     setTimeout(function() {
         btnRed.classList.remove("transition-active-red");
-    }, 1000); 
+    }, 1000);
 }
 
-function playBlueSoundAndLight(){ //plays sound and light for blue button
-    audioAzul.play();    
+function playBlueSoundAndLight() { //plays sound and light for blue button
+    audioAzul.play();
     btnBlue.classList.add("transition-active-blue");
     setTimeout(function() {
         btnBlue.classList.remove("transition-active-blue");
-    }, 1000); 
+    }, 1000);
 }
 
-function playGreenSoundAndLight(){ //plays sound and light for green button
-    audioVerde.play();  
+function playGreenSoundAndLight() { //plays sound and light for green button
+    audioVerde.play();
     btnGreen.classList.add("transition-active-green");
     setTimeout(function() {
         btnGreen.classList.remove("transition-active-green");
     }, 1000);
 }
-function playYellowSoundAndLight(){ //plays sound and light for yellow button
-    audioAmarillo.play();      
+
+function playYellowSoundAndLight() { //plays sound and light for yellow button
+    audioAmarillo.play();
     btnYellow.classList.add("transition-active-yellow");
     setTimeout(function() {
         btnYellow.classList.remove("transition-active-yellow");
-    }, 1000); 
+    }, 1000);
 }
 
-  function reproduceSequence(){  //plays the sequence of buttons to the player  
+function reproduceSequence() { //plays the sequence of buttons to the player  
     playerClicksCounter = 0;
     for (var i = 0; i < gameSequenceArray.length; i++) {
-        if(gameSequenceArray[i] === parseInt(btnRed.id)){
+        if (gameSequenceArray[i] === parseInt(btnRed.id)) {
             setTimeout(function() {
                 playRedSoundAndLight();
             }, i * 1500);
-        }else if(gameSequenceArray[i] === parseInt(btnBlue.id)){
+        } else if (gameSequenceArray[i] === parseInt(btnBlue.id)) {
             setTimeout(function() {
                 playBlueSoundAndLight();
-            }, i * 1500); 
-        }else if(gameSequenceArray[i] === parseInt(btnGreen.id)){
+            }, i * 1500);
+        } else if (gameSequenceArray[i] === parseInt(btnGreen.id)) {
             setTimeout(function() {
                 playGreenSoundAndLight();
-            }, i * 1500);  
-        }else{
+            }, i * 1500);
+        } else {
             setTimeout(function() {
                 playYellowSoundAndLight();
-            }, i * 1500); 
-        }        
-    } 
+            }, i * 1500);
+        }
+    }
 }
 
-  function buildSequence(){  //builds the sequence of buttons to repeat          
+function buildSequence() { //builds the sequence of buttons to repeat          
     var randomNumber;
     var sequenceDuration;
-    
-    btnPlay.textContent = "MIRA Y ESCUCHA!"; 
+
+    btnPlay.textContent = "MIRA Y ESCUCHA!";
     randomNumber = Math.floor(Math.random() * 4) + 1;
-    gameSequenceArray.push(randomNumber);    
-    if(gameSequenceArray.length > 1){
+    gameSequenceArray.push(randomNumber);
+    if (gameSequenceArray.length > 1) {
         level += 1;
         levelDisplay.textContent = "Nivel: " + level;
         labelScore.textContent = actualScore;
@@ -284,29 +284,29 @@ function playYellowSoundAndLight(){ //plays sound and light for yellow button
     btnBlue.disabled = true;
     btnGreen.disabled = true;
     btnYellow.disabled = true;
-    secondsLeft = totalSequenceTime + (level-1);        
+    secondsLeft = totalSequenceTime + (level - 1);
     updateProgressBar(secondsLeft);
     labelSeconds.textContent = `${secondsLeft} seg`;
     reproduceSequence();
     sequenceDuration = 1500 * gameSequenceArray.length;
-    setTimeout(function() {       
+    setTimeout(function() {
         progressInterval = setInterval(function() {
             secondsLeft--;
             updateProgressBar(secondsLeft);
             labelSeconds.textContent = `${secondsLeft} seg`;
-          }, 1000);         
+        }, 1000);
         btnPlay.textContent = "REPETI LA SECUENCIA!";
         btnRed.disabled = false;
         btnBlue.disabled = false;
         btnGreen.disabled = false;
         btnYellow.disabled = false;
-      }, sequenceDuration);    
+    }, sequenceDuration);
 }
 
-function getDate(){ //gets the current Date to save in Local Storage for Ranking
+function getDate() { //gets the current Date to save in Local Storage for Ranking
     var currentDate = new Date();
     var year = currentDate.getFullYear();
-    var month = currentDate.getMonth() + 1; 
+    var month = currentDate.getMonth() + 1;
     var day = currentDate.getDay();
     var hours = currentDate.getHours();
     var minutes = currentDate.getMinutes();
@@ -318,89 +318,88 @@ function getDate(){ //gets the current Date to save in Local Storage for Ranking
     gameDate = `${formattedDate} - ${formattedTime}`;
 }
 
-function calculatePenalization(){ //if player took 2 seconds for example out of the total time to repeat the sequence, 2% of the correct clicks in that sequence will be removed from the score
+function calculatePenalization() { //if player took 2 seconds for example out of the total time to repeat the sequence, 2% of the correct clicks in that sequence will be removed from the score
     var porcentageToTake = 0;
     var amountToAddToActualScore = 0;
     var totalOfCorrectClicksUntilMistake = 0;
     var amountToTakeFromActualScore = 0;
 
-    if(completedSequenceCorrectly){ //if the sequence was completed correctly, the penalization applies to the amount of clicks on that level (amount of clicks = level)
-        porcentageToTake = ((totalSequenceTime + (level-1)) - secondsLeft);
+    if (completedSequenceCorrectly) { //if the sequence was completed correctly, the penalization applies to the amount of clicks on that level (amount of clicks = level)
+        porcentageToTake = ((totalSequenceTime + (level - 1)) - secondsLeft);
         totalSecondsTaken = totalSecondsTaken + porcentageToTake; //this value is not for the penalization, is just to keep track in storage of how many seconds in total it took for the player from starting to loosing the game
-        amountToTakeFromActualScore = (porcentageToTake * level) / 100; 
+        amountToTakeFromActualScore = (porcentageToTake * level) / 100;
         amountToAddToActualScore = level - amountToTakeFromActualScore;
         actualScore = actualScore + amountToAddToActualScore;
-        actualScore  = (actualScore * 100) / 100; //result with two decimals
-        labelScore.textContent = actualScore;        
-    }else{ // if the sequence was NOT completed correctly, the penalization applies only to the amount of correct clicks in that level        
-        totalOfCorrectClicksUntilMistake = level -1;
-        porcentageToTake = ((totalSequenceTime + (level-1)) - secondsLeft);
-        totalSecondsTaken = totalSecondsTaken + porcentageToTake; 
-        amountToTakeFromActualScore = (porcentageToTake * totalOfCorrectClicksUntilMistake) / 100; 
+        actualScore = (actualScore * 100) / 100; //result with two decimals
+        labelScore.textContent = actualScore;
+    } else { // if the sequence was NOT completed correctly, the penalization applies only to the amount of correct clicks in that level        
+        totalOfCorrectClicksUntilMistake = level - 1;
+        porcentageToTake = ((totalSequenceTime + (level - 1)) - secondsLeft);
+        totalSecondsTaken = totalSecondsTaken + porcentageToTake;
+        amountToTakeFromActualScore = (porcentageToTake * totalOfCorrectClicksUntilMistake) / 100;
         amountToAddToActualScore = totalOfCorrectClicksUntilMistake - amountToTakeFromActualScore;
         actualScore = actualScore + amountToAddToActualScore;
-        actualScore  = (Math.round(actualScore * 100) / 100).toFixed(2);
-        labelScore.textContent = actualScore;        
+        actualScore = (Math.round(actualScore * 100) / 100).toFixed(2);
+        labelScore.textContent = actualScore;
     }
     completedSequenceCorrectly = false;
 }
 
-function orderRankingByScore(){ //orders the array by score (from highest to lowest)
+function orderRankingByScore() { //orders the array by score (from highest to lowest)
     var gamesLastScores = [];
     var highestNumber = 0;
     var indexOfHighestNumber;
 
-    for (var i = 1; i <= gameNumber; i++) {  //Store all scores and its respective game number inside an array                  
-        var score = localStorage.getItem(`Game: ${i} - Score`);    
+    for (var i = 1; i <= gameNumber; i++) { //Store all scores and its respective game number inside an array                  
+        var score = localStorage.getItem(`Game: ${i} - Score`);
         gamesLastScores.push(score);
         gamesLastScores.push(i);
     }
-       
-    for (var i = 0; i < gamesLastScores.length; i+= 2) { 
-        if(i === 0){
+
+    for (var i = 0; i < gamesLastScores.length; i += 2) {
+        if (i === 0) {
             highestNumber = gamesLastScores[0];
             indexOfHighestNumber = 0;
-        }    
-        else if(gamesLastScores[i] > highestNumber){
+        } else if (gamesLastScores[i] > highestNumber) {
             highestNumber = gamesLastScores[i];
             indexOfHighestNumber = i;
-        }        
+        }
 
-        if(i === gamesLastScores.length - 2){
-            arrayOrderedByScore.push(gamesLastScores[indexOfHighestNumber+1]); //save game number with highest score
+        if (i === gamesLastScores.length - 2) {
+            arrayOrderedByScore.push(gamesLastScores[indexOfHighestNumber + 1]); //save game number with highest score
             gamesLastScores.splice(indexOfHighestNumber, 1); //remove highest score
             gamesLastScores.splice(indexOfHighestNumber, 1); //remove game of highest score            
-            i = -2;                     
+            i = -2;
         }
     }
 }
 
-function showRankingPopupOrderedByScore(){ //if the "Score" label is clicked, the Ranking will be ordered by score
+function showRankingPopupOrderedByScore() { //if the "Score" label is clicked, the Ranking will be ordered by score
     var playerItemValue;
     var scoreItemValue;
     var levelItemValue;
     var secondsItemValue;
     var dateItemValue;
 
-    var divLabelsContainer;    
-    var playerLabel;    
+    var divLabelsContainer;
+    var playerLabel;
     var gameNumberLabel;
     var scoreLabel;
     var levelLabel;
-    var totalSecondsSpentOnGameLabel;    
-    var dateLabel;    
+    var totalSecondsSpentOnGameLabel;
+    var dateLabel;
 
     gameNumber = localStorage.getItem("Game");
 
-    if(gameNumber !== null){
+    if (gameNumber !== null) {
         orderRankingByScore();
-        for (var i = 0; i < arrayOrderedByScore.length; i++) {                
+        for (var i = 0; i < arrayOrderedByScore.length; i++) {
             playerItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Player`);
             scoreItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Score`);
             levelItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Highest level reached`);
             secondsItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Seconds taken`);
-            dateItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Date`);            
-                      
+            dateItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Date`);
+
             divLabelsContainer = document.createElement("div");
             divLabelsContainer.classList.add("divLabelsContainer");
             playerLabel = document.createElement("label");
@@ -412,50 +411,49 @@ function showRankingPopupOrderedByScore(){ //if the "Score" label is clicked, th
             totalSecondsSpentOnGameLabel.classList.add("labelSeconds");
             dateLabel = document.createElement("label");
             dateLabel.classList.add("labelDate");
-            
+
             playerLabel.textContent = playerItemValue;
-            gameNumberLabel.textContent = arrayOrderedByScore[i];            
-            scoreLabel.textContent =  scoreItemValue;
-            levelLabel.textContent = levelItemValue; 
+            gameNumberLabel.textContent = arrayOrderedByScore[i];
+            scoreLabel.textContent = scoreItemValue;
+            levelLabel.textContent = levelItemValue;
             totalSecondsSpentOnGameLabel.textContent = secondsItemValue;
             dateLabel.textContent = dateItemValue;
 
             rowDataContainer.appendChild(divLabelsContainer);
             divLabelsContainer.appendChild(gameNumberLabel);
-            divLabelsContainer.appendChild(playerLabel);            
+            divLabelsContainer.appendChild(playerLabel);
             divLabelsContainer.appendChild(scoreLabel);
             divLabelsContainer.appendChild(levelLabel);
             divLabelsContainer.appendChild(totalSecondsSpentOnGameLabel);
             divLabelsContainer.appendChild(dateLabel);
 
             createdElementsForRanking.push(divLabelsContainer, playerLabel, gameNumberLabel, scoreLabel, levelLabel, totalSecondsSpentOnGameLabel, dateLabel);
-        }        
+        }
     }
 }
 
-function orderRankingByDate(){ //orders the array by date (from highest to lowest)
+function orderRankingByDate() { //orders the array by date (from highest to lowest)
     var gamesDates = [];
     var highestDate = 0;
     var indexOfHighestDate;
 
-    for (var i = 1; i <= gameNumber; i++) {       //Store all scores and its respective game number inside an array                  
-        var date = localStorage.getItem(`Game: ${i} - Date`);    
+    for (var i = 1; i <= gameNumber; i++) { //Store all scores and its respective game number inside an array                  
+        var date = localStorage.getItem(`Game: ${i} - Date`);
         gamesDates.push(date);
         gamesDates.push(i);
     }
-        
-    for (var i = 0; i < gamesDates.length; i+= 2) { 
-        if(i === 0){
+
+    for (var i = 0; i < gamesDates.length; i += 2) {
+        if (i === 0) {
             highestDate = gamesDates[0];
             indexOfHighestDate = 0;
-        }    
-        else if(gamesDates[i] > highestDate){
+        } else if (gamesDates[i] > highestDate) {
             highestDate = gamesDates[i];
             indexOfHighestDate = i;
-        }        
+        }
 
-        if(i === gamesDates.length - 2){ //if it is evaluating last date value
-            arrayOrderedByDate.push(gamesDates[indexOfHighestDate+1]); //save game number with highest date
+        if (i === gamesDates.length - 2) { //if it is evaluating last date value
+            arrayOrderedByDate.push(gamesDates[indexOfHighestDate + 1]); //save game number with highest date
             gamesDates.splice(indexOfHighestDate, 1); //remove highest date
             gamesDates.splice(indexOfHighestDate, 1); //remove game of highest date
             i = -2;
@@ -463,32 +461,32 @@ function orderRankingByDate(){ //orders the array by date (from highest to lowes
     }
 }
 
-function showRankingPopupOrderedByDate(){ //if the "Date" label is clicked, the Ranking will be ordered by date
+function showRankingPopupOrderedByDate() { //if the "Date" label is clicked, the Ranking will be ordered by date
     var playerItemValue;
     var scoreItemValue;
     var levelItemValue;
     var secondsItemValue;
     var dateItemValue;
 
-    var divLabelsContainer;    
-    var playerLabel;    
+    var divLabelsContainer;
+    var playerLabel;
     var gameNumberLabel;
     var scoreLabel;
     var levelLabel;
-    var totalSecondsSpentOnGameLabel;    
-    var dateLabel;    
+    var totalSecondsSpentOnGameLabel;
+    var dateLabel;
 
     gameNumber = localStorage.getItem("Game");
 
-    if(gameNumber !== null){
+    if (gameNumber !== null) {
         orderRankingByDate();
-        for (var i = 0; i < arrayOrderedByDate.length; i++) {                
+        for (var i = 0; i < arrayOrderedByDate.length; i++) {
             playerItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Player`);
             scoreItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Score`);
             levelItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Highest level reached`);
             secondsItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Seconds taken`);
-            dateItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Date`);            
-                      
+            dateItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Date`);
+
             divLabelsContainer = document.createElement("div");
             divLabelsContainer.classList.add("divLabelsContainer");
             playerLabel = document.createElement("label");
@@ -500,77 +498,77 @@ function showRankingPopupOrderedByDate(){ //if the "Date" label is clicked, the 
             totalSecondsSpentOnGameLabel.classList.add("labelSeconds");
             dateLabel = document.createElement("label");
             dateLabel.classList.add("labelDate");
-            
+
             playerLabel.textContent = playerItemValue;
-            gameNumberLabel.textContent = arrayOrderedByDate[i];            
-            scoreLabel.textContent =  scoreItemValue;
-            levelLabel.textContent = levelItemValue; 
+            gameNumberLabel.textContent = arrayOrderedByDate[i];
+            scoreLabel.textContent = scoreItemValue;
+            levelLabel.textContent = levelItemValue;
             totalSecondsSpentOnGameLabel.textContent = secondsItemValue;
             dateLabel.textContent = dateItemValue;
 
             rowDataContainer.appendChild(divLabelsContainer);
             divLabelsContainer.appendChild(gameNumberLabel);
-            divLabelsContainer.appendChild(playerLabel);            
+            divLabelsContainer.appendChild(playerLabel);
             divLabelsContainer.appendChild(scoreLabel);
             divLabelsContainer.appendChild(levelLabel);
             divLabelsContainer.appendChild(totalSecondsSpentOnGameLabel);
             divLabelsContainer.appendChild(dateLabel);
 
             createdElementsForRanking.push(divLabelsContainer, playerLabel, gameNumberLabel, scoreLabel, levelLabel, totalSecondsSpentOnGameLabel, dateLabel);
-        }        
+        }
     }
 }
 
-function updateTitle() {    //updates the "Bienvenido" title on user's name input with input's value
+function updateTitle() { //updates the "Bienvenido" title on user's name input with input's value
     var updatedTitle;
-    if(input.value.trim() !== ""){ //Check if typed values are not just spaces        
-        updatedTitle = `Bienvenido ${input.value}`;       
+    if (input.value.trim() !== "") { //Check if typed values are not just spaces        
+        updatedTitle = `Bienvenido ${input.value}`;
         title.textContent = updatedTitle;
-        if(title.textContent.length >= 14){
+        if (title.textContent.length >= 14) {
             completeCharactersOnTitle = true; //Rise flag when title value reaches 14 characters (Bienvenido + [space] + 3 letters)
             playerName = input.value;
-        }    
-        if(title.textContent.length >= 14){
+        }
+        if (title.textContent.length >= 14) {
             btnPlay.disabled = false;
-        }else if(title.textContent.length < 14 && completeCharactersOnTitle === true){ //If goes in here its because it is deleting value on input until less than 14 chars
+        } else if (title.textContent.length < 14 && completeCharactersOnTitle === true) { //If goes in here its because it is deleting value on input until less than 14 chars
             btnPlay.disabled = true;
             popupNameInfo.style.display = "flex";
         }
-    }else{
+    } else {
         btnPlay.disabled = true;
-    } 
+    }
 }
 //EVENT LISTENERS
 
 //btnPlay Event
-btnPlay.addEventListener("click", function() {  
+btnPlay.addEventListener("click", function() {
     getDate();
-    input.disabled = true;  
+    input.disabled = true;
     juegoActualH3.classList.remove("currentGameOver");
-    juegoActualH3.classList.add("currentGame");    
-    btnPlay.disabled = true;    
-    levelDisplay.textContent = "Nivel: " + level;    
-    btnPlay.textContent = "MIRA Y ESCUCHA!"; 
-    buildSequence();        
+    juegoActualH3.classList.add("currentGame");
+    btnPlay.disabled = true;
+    levelDisplay.textContent = "Nivel: " + level;
+    btnPlay.textContent = "MIRA Y ESCUCHA!";
+    buildSequence();
 });
 
 //btnContact Event
-btnContact.addEventListener("click", function(){
+btnContact.addEventListener("click", function() {
     window.open("contactPage.html", "_blank");
 });
 
 //btnRed Events
-btnRed.addEventListener("click", function(){                    
+btnRed.addEventListener("click", function() {
     playerClicksCounter += 1;
-    if(gameSequenceArray[playerClicksCounter - 1] !== parseInt(btnRed.id)){        
+    if (gameSequenceArray[playerClicksCounter - 1] !== parseInt(btnRed.id)) {
         clearInterval(progressInterval);
         progressBar.style.width = "100%";
         progressBar.style.backgroundColor = "darkgreen";
         calculatePenalization();
         GameOver();
     }
-    
-    if(playerClicksCounter === gameSequenceArray.length && playerClicksCounter !== 0){
+
+    if (playerClicksCounter === gameSequenceArray.length && playerClicksCounter !== 0) {
         winnerLayerElement.style.display = "flex";
         completedSequenceCorrectly = true;
         clearInterval(progressInterval);
@@ -584,30 +582,30 @@ btnRed.addEventListener("click", function(){
             buildSequence()
         }, 1500);
         calculatePenalization();
-    }        
+    }
 });
 
 btnRed.addEventListener("mousedown", function() {
     btnRed.classList.add("transition-active-red");
     audioRojo.play();
 });
-    
+
 btnRed.addEventListener("mouseup", function() {
     btnRed.classList.remove("transition-active-red");
 });
 
 //btnBlue Events
-btnBlue.addEventListener("click", function(){          
+btnBlue.addEventListener("click", function() {
     playerClicksCounter += 1;
-    if(gameSequenceArray[playerClicksCounter - 1] !== parseInt(btnBlue.id)){        
+    if (gameSequenceArray[playerClicksCounter - 1] !== parseInt(btnBlue.id)) {
         clearInterval(progressInterval);
         progressBar.style.width = "100%";
         progressBar.style.backgroundColor = "darkgreen";
         calculatePenalization();
         GameOver();
     }
-    
-    if(playerClicksCounter === gameSequenceArray.length && playerClicksCounter !== 0){
+
+    if (playerClicksCounter === gameSequenceArray.length && playerClicksCounter !== 0) {
         winnerLayerElement.style.display = "flex";
         completedSequenceCorrectly = true;
         clearInterval(progressInterval);
@@ -621,60 +619,22 @@ btnBlue.addEventListener("click", function(){
             buildSequence()
         }, 1500);
         calculatePenalization();
-    }        
+    }
 });
 
 btnBlue.addEventListener("mousedown", function() {
     btnBlue.classList.add("transition-active-blue");
     audioAzul.play();
 });
-    
+
 btnBlue.addEventListener("mouseup", function() {
     btnBlue.classList.remove("transition-active-blue");
 });
 
 //btnGreen Events
-btnGreen.addEventListener("click", function(){            
+btnGreen.addEventListener("click", function() {
     playerClicksCounter += 1;
-    if(gameSequenceArray[playerClicksCounter - 1] !== parseInt(btnGreen.id)){    
-        clearInterval(progressInterval);
-        progressBar.style.width = "100%";
-        progressBar.style.backgroundColor = "darkgreen";         
-        calculatePenalization();               
-        GameOver();
-    }
-    
-    if(playerClicksCounter === gameSequenceArray.length && playerClicksCounter !== 0){
-        winnerLayerElement.style.display = "flex";
-        completedSequenceCorrectly = true;
-        clearInterval(progressInterval);
-        progressBar.style.width = "100%";
-        progressBar.style.backgroundColor = "darkgreen";
-        
-        setTimeout(function() {
-            winnerLayerElement.style.display = "none";
-        }, 900);
-        setTimeout(function() {
-            buildSequence()        
-        }, 1500);
-        calculatePenalization();
-    }        
-});
-
-btnGreen.addEventListener("mousedown", function() {
-    btnGreen.classList.add("transition-active-green");
-    audioVerde.play();    
-});
-    
-btnGreen.addEventListener("mouseup", function() {
-    btnGreen.classList.remove("transition-active-green");
-   
-});
-
-//btnYellow Events
-btnYellow.addEventListener("click", function(){  
-    playerClicksCounter += 1;
-    if(gameSequenceArray[playerClicksCounter - 1] !== parseInt(btnYellow.id)){        
+    if (gameSequenceArray[playerClicksCounter - 1] !== parseInt(btnGreen.id)) {
         clearInterval(progressInterval);
         progressBar.style.width = "100%";
         progressBar.style.backgroundColor = "darkgreen";
@@ -682,12 +642,12 @@ btnYellow.addEventListener("click", function(){
         GameOver();
     }
 
-    if(playerClicksCounter === gameSequenceArray.length && playerClicksCounter !== 0){
+    if (playerClicksCounter === gameSequenceArray.length && playerClicksCounter !== 0) {
         winnerLayerElement.style.display = "flex";
         completedSequenceCorrectly = true;
-       clearInterval(progressInterval);
-       progressBar.style.width = "100%";
-       progressBar.style.backgroundColor = "darkgreen";
+        clearInterval(progressInterval);
+        progressBar.style.width = "100%";
+        progressBar.style.backgroundColor = "darkgreen";
 
         setTimeout(function() {
             winnerLayerElement.style.display = "none";
@@ -696,31 +656,69 @@ btnYellow.addEventListener("click", function(){
             buildSequence()
         }, 1500);
         calculatePenalization();
-    }        
+    }
+});
+
+btnGreen.addEventListener("mousedown", function() {
+    btnGreen.classList.add("transition-active-green");
+    audioVerde.play();
+});
+
+btnGreen.addEventListener("mouseup", function() {
+    btnGreen.classList.remove("transition-active-green");
+
+});
+
+//btnYellow Events
+btnYellow.addEventListener("click", function() {
+    playerClicksCounter += 1;
+    if (gameSequenceArray[playerClicksCounter - 1] !== parseInt(btnYellow.id)) {
+        clearInterval(progressInterval);
+        progressBar.style.width = "100%";
+        progressBar.style.backgroundColor = "darkgreen";
+        calculatePenalization();
+        GameOver();
+    }
+
+    if (playerClicksCounter === gameSequenceArray.length && playerClicksCounter !== 0) {
+        winnerLayerElement.style.display = "flex";
+        completedSequenceCorrectly = true;
+        clearInterval(progressInterval);
+        progressBar.style.width = "100%";
+        progressBar.style.backgroundColor = "darkgreen";
+
+        setTimeout(function() {
+            winnerLayerElement.style.display = "none";
+        }, 900);
+        setTimeout(function() {
+            buildSequence()
+        }, 1500);
+        calculatePenalization();
+    }
 });
 
 btnYellow.addEventListener("mousedown", function() {
     btnYellow.classList.add("transition-active-yellow");
     audioAmarillo.play();
 });
-    
+
 btnYellow.addEventListener("mouseup", function() {
     btnYellow.classList.remove("transition-active-yellow");
 });
 
 //btnGameOverClosePopup Event
 btnGameOverClosePopup.addEventListener("click", function() {
-    popupLooser.style.display = "none";    
-    btnPlay.disabled = false; 
+    popupLooser.style.display = "none";
+    btnPlay.disabled = false;
 });
 
 //btnNameInfoClosePopup Event
-btnNameInfoClosePopup.addEventListener("click", function() {       
-    popupNameInfo.style.display = "none"; 
+btnNameInfoClosePopup.addEventListener("click", function() {
+    popupNameInfo.style.display = "none";
 });
 
 //btnRankingClosePopup Event
-btnRankingClosePopup.addEventListener("click", function() {       
+btnRankingClosePopup.addEventListener("click", function() {
     popupRanking.style.display = "none";
     for (var element of createdElementsForRanking) {
         element.remove();
@@ -734,17 +732,17 @@ btnReset.addEventListener("click", function() {
     labelHighestScoreSaved.textContent = "";
     labelOwnerHighestScoreSaved.textContent = "";
     labelHighestLevelSaved.textContent = "";
-    labelOwnerHighestLevelSaved.textContent = "";  
-});  
+    labelOwnerHighestLevelSaved.textContent = "";
+});
 
 //btnRanking Event
-btnRanking.addEventListener("click", function() {    
+btnRanking.addEventListener("click", function() {
     showRankingPopupOrderedByScore();
     popupRanking.style.display = "flex";
-});  
+});
 
 //scoreLabelHeader Event
-scoreLabelHeader.addEventListener("click", function(){
+scoreLabelHeader.addEventListener("click", function() {
     for (var element of createdElementsForRanking) {
         element.remove();
     }
@@ -753,10 +751,10 @@ scoreLabelHeader.addEventListener("click", function(){
 });
 
 //dateLabelHeader Event
-dateLabelHeader.addEventListener("click", function(){
+dateLabelHeader.addEventListener("click", function() {
     for (var element of createdElementsForRanking) {
         element.remove();
-    }    
+    }
     arrayOrderedByDate = [];
     showRankingPopupOrderedByDate();
 });
