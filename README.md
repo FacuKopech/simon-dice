@@ -6,6 +6,7 @@
 ![image](https://github.com/FacuKopech/simon-dice/assets/63883859/7d6e20ae-dfc8-4a0c-b603-b2a9fa791694)
 
 ### Las reglas son simples:
+* Para comenzar a jugar, el jugador debe ingresar su nombre en el Input que dice 'Nombre'
 * El jugador debe repetir en el orden correcto la secuencia de luces y sonidos generada por el juego de manera aleatoria. A medida que completa cada secuencia, el jugador avanza de nivel.
 * Si el jugador oprime un boton que no corresponde al orden de la secuencia generada, finaliza el juego. 
 * Para cada nivel, el jugador dispondra de una cierta cantidad de segundos para repetir la secuencia. El nivel 1 comienza con 5 segundos, y a medida que avanza de nivel, se le agrega un segundo. 
@@ -18,7 +19,7 @@
 ### El jugador puede oprimir en el boton 'Ranking' para visualizar las partidas que ha jugado, junto con el numero de partida, nombre del jugador, el puntaje obtenido, el maximo nivel al cual ha llegado en dicha partida, la cantidad de segundos que demoro en todas las secuencias, y la fecha.
 ![image](https://github.com/FacuKopech/simon-dice/assets/63883859/f9f6d22a-7e0f-4356-8ec8-711727ab8c56)
 
-### No solo se visualizara sus partidas, sino la de todos los jugadores que ingresen su nombre en el campo de mas arriba. De esta forma, el jugador puede competir con sus amigos y todos llevar un regisrtro de quien ha sido el mas victorioso!
+### No solo se visualizara sus partidas, sino la de todos los jugadores que ingresen su nombre en el campo de mas arriba. De esta forma, el jugador puede competir con sus amigos y todos llevar un registro de quien ha sido el mas victorioso!
 
 ## Maximos valores
 ### En el lado izquierdo del tablero, se puede visualizar los maximos valores alcanzados. Esto indica:
