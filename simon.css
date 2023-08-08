@@ -96,7 +96,10 @@ footer {
   justify-content: space-between;
 }
 .divNavTitleContainer {
+  color: #fff;
   display: flex;
+  font-family: "Oleo Script", cursive;
+  font-size: large;
   justify-content: center;
   margin-left: 42px;
   width: 90%;
