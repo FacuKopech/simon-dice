@@ -65,7 +65,7 @@ main{
     
 }
 
-.color-layer-looser {
+.divColorLayerLooser {
     display: none;
     background-color: #9f0f16db;
     position: absolute;
@@ -76,7 +76,7 @@ main{
     z-index: 1;
   }
   
-  .color-layer-winner{
+  .divColorLayerWinner{
     display: none;
     background-color: #00a74bd6;
     position: absolute;
