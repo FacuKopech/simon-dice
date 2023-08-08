@@ -11,6 +11,7 @@
 * Para cada nivel, el jugador dispondra de una cierta cantidad de segundos para repetir la secuencia.
 * Si el tiempo finaliza y el jugador aun no completo la secuencia, finaliza el juego
 * CUIDADO! Si el jugador repite la secuencia de manera exitosa y dentro del rango de tiempo disponible, se le descontara del puntaje acumulado en ese nivel, un porcentaje acorde a la cantidad de segundos que demoro en completar la secuencia. Por ejemplo, el jugador se encuentra en el nivel 4, completo la secuencia de manera correcta y de los 8 segundos que tiene disponible, tardo 3, por ende, se le descuenta un 3% a su puntaje en dicho nivel
+* ![image](https://github.com/FacuKopech/simon-dice/assets/63883859/06f8fe7c-384e-48b3-931f-a2966d4047ea)
 
 ## Ranking
 ### El jugador puede oprimir en el boton 'Ranking' para visualizar las partidas que ha jugado, junto con el numero de partida, nombre del jugador, el puntaje obtenido, el maximo nivel al cual ha llegado en dicha partida, la cantidad de segundos que demoro en todas las secuencias, y la fecha.
@@ -21,7 +22,7 @@
 ## Maximos valores
 ### En el lado izquierdo del tablero, se puede visualizar los maximos valores alcanzados. Esto indica:
 * El maximo puntaje alcanzado
-* * A quien pertenece el maximo puntaje alcanzado
+* A quien pertenece el maximo puntaje alcanzado
 * El maximo nivel alcanzado
 * A quien pertenece el maximo nivel alcanzado
 
