@@ -27,8 +27,8 @@ var labelOwnerHighestScoreSaved = document.querySelector('label[id="ownerHighest
 var labelHighestLevelSaved = document.querySelector('label[id="highestLevelSaved"]');
 var labelOwnerHighestLevelSaved = document.querySelector('label[id="ownerHighestLevelSavedLabel"]');
 var labelSeconds = document.getElementById("labelSeconds");
-var scoreLabelHeader = document.getElementById("scoreLabelHeader");
-var dateLabelHeader = document.getElementById("dateLabelHeader");
+var labelScoreHeader = document.getElementById("labelScoreHeader");
+var labelDateHeader = document.getElementById("labelDateHeader");
 
 //LAYERS
 var looserLayerElement = document.querySelector(".divColorLayerLooser");
@@ -37,7 +37,7 @@ var winnerLayerElement = document.querySelector(".divColorLayerWinner");
 //TITLES
 var title = document.getElementById("welcomeTitle");
 var titlePopup = document.getElementById("popupTitle");
-var juegoActualH3 = document.querySelector('h3[id="actualGame"]');
+var h3CurrentGame = document.querySelector('h3[id="currentGameTitle"]');
 
 //INPUTS
 var input = document.getElementById("textInput");
@@ -171,8 +171,8 @@ function GameOver() { //sets the variables and calls the appropiate methods to p
     updatedTitle = `GAME OVER ${input.value}!`;
     titlePopup.textContent = updatedTitle;
     labelScoreGameOver.textContent = actualScore;
-    juegoActualH3.classList.remove("currentGame");
-    juegoActualH3.classList.add("currentGameOver");
+    h3CurrentGame.classList.remove("currentGame");
+    h3CurrentGame.classList.add("currentGameOver");
     playerClicksCounter = 0;
     playerSequenceArray = [];
     gameSequenceArray = [];
@@ -547,8 +547,8 @@ input.addEventListener('input', updateTitle);
 btnPlay.addEventListener("click", function() {
     getDate();
     input.disabled = true;
-    juegoActualH3.classList.remove("currentGameOver");
-    juegoActualH3.classList.add("currentGame");
+    h3CurrentGame.classList.remove("currentGameOver");
+    h3CurrentGame.classList.add("currentGame");
     btnPlay.disabled = true;
     levelDisplay.textContent = "Nivel: " + level;
     btnPlay.textContent = "MIRA Y ESCUCHA!";
@@ -745,7 +745,7 @@ btnRanking.addEventListener("click", function() {
 });
 
 //scoreLabelHeader Event
-scoreLabelHeader.addEventListener("click", function() {
+labelScoreHeader.addEventListener("click", function() {
     for (var element of createdElementsForRanking) {
         element.remove();
     }
@@ -754,7 +754,7 @@ scoreLabelHeader.addEventListener("click", function() {
 });
 
 //dateLabelHeader Event
-dateLabelHeader.addEventListener("click", function() {
+labelDateHeader.addEventListener("click", function() {
     for (var element of createdElementsForRanking) {
         element.remove();
     }
