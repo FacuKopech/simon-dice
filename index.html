@@ -1,157 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://www.memozor.com/jeux/new_games/simon/classic/image_bg.jpg?v=4" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="simon.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet">        
-    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
-    <title>SimonDice</title>
-</head>
-<body>
-    <header>
-        <nav class="navCustom">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="https://www.memozor.com/jeux/new_games/simon/classic/image_bg.jpg?v=4" type="image/x-icon">
+      <link rel="stylesheet" type="text/css" href="simon.css" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+      <title>SimonDice</title>
+   </head>
+   <body>
+      <header>
+         <nav class="navCustom">
             <div class="divInvisible"></div>
             <div class="divNavTitleContainer">
-               <p>SIMON DICE</p>               
+               <p>SIMON DICE</p>
             </div>
             <div class="navContactButton">
-                <button class="btnContactButton" id="contactBtn" title="Cerrar">
-                    Contacto                    
-                </button>
-            </div>           
-        </nav>
-    </header>
-
-    <main>
-        <div class="divColorLayerLooser"></div>
-        <div class="divColorLayerWinner"></div>
-        <div class="divContainerData">            
+               <button class="btnContactButton" id="contactBtn" title="Cerrar">
+               Contacto                    
+               </button>
+            </div>
+         </nav>
+      </header>
+      <main>
+         <div class="divColorLayerLooser"></div>
+         <div class="divColorLayerWinner"></div>
+         <div class="divContainerData">
             <div class="divTitle">
-                <h1 id="welcomeTitle">Bienvenido</h1>                   
-                <div class="divInputControl">
-                    <input oninput="updateTitle()"  id="textInput" type="text" required="" placeholder="Nombre">                    
-                </div>                     
-                <h6 id="h6LevelDisplay"></h6>
+               <h1 id="welcomeTitle">Bienvenido</h1>
+               <div class="divInputControl">
+                  <input oninput="updateTitle()"  id="textInput" type="text" required="" placeholder="Nombre">                    
+               </div>
+               <h6 id="h6LevelDisplay"></h6>
             </div>
-           
-        </div>      
-        <div id="popupLooser" class="divPopupLooserContainer">
+         </div>
+         <div id="popupLooser" class="divPopupLooserContainer">
             <div class="popupGameOverContent">
-                <h2 id="popupTitle"></h2>    
-                <div class="divScoreAchieved">
-                    <p>Puntaje obtenido:</p><label id="labelScoreGameOver"></label>                    
-                </div>                        
-                <div class="divPopupCloseButton">
-                    <button class="btnClosePopup" id="closeGameOverPopupBtn" title="Cerrar">
-                        Cerrar
-                    </button>
-                </div>                      
+               <h2 id="popupTitle"></h2>
+               <div class="divScoreAchieved">
+                  <p>Puntaje obtenido:</p>
+                  <label id="labelScoreGameOver"></label>                    
+               </div>
+               <div class="divPopupCloseButton">
+                  <button class="btnClosePopup" id="closeGameOverPopupBtn" title="Cerrar">
+                  Cerrar
+                  </button>
+               </div>
             </div>
-        </div>  
-        <div id="popupNameInfo" class="divPopupNameInfoContainer">
-            <div class="divPopupNameInfoContent">                                  
-                <div class="divInfo">
-                    <p>Ingresa tu nombre para comenzar la partida (3 o mas caracteres)</p>       
-                </div>                        
-                <div class="divPopupCloseButton">
-                    <button class="btnClosePopup" id="closeNameInfoPopupBtn" title="Cerrar">
-                       Cerrar
-                    </button>
-                </div>                      
+         </div>
+         <div id="popupNameInfo" class="divPopupNameInfoContainer">
+            <div class="divPopupNameInfoContent">
+               <div class="divInfo">
+                  <p>Ingresa tu nombre para comenzar la partida (3 o mas caracteres)</p>
+               </div>
+               <div class="divPopupCloseButton">
+                  <button class="btnClosePopup" id="closeNameInfoPopupBtn" title="Cerrar">
+                  Cerrar
+                  </button>
+               </div>
             </div>
-        </div> 
-        <div id="popupRanking" class="divPopupRankingContainer">
+         </div>
+         <div id="popupRanking" class="divPopupRankingContainer">
             <div class="divPopupRankingContent">
-                <h2>Ranking</h2> 
-                <div class="divTableHeader">
-                    <label >Juego Nro.</label>
-                    <label >Jugador</label>
-                    <label id="scoreLabelHeader" >Puntaje</label>
-                    <label >Nivel</label>
-                    <label >Segundos</label>
-                    <label id="dateLabelHeader" >Fecha</label>
-                </div> 
-                <hr class="hrTable">  
-                <div id="rowDataContainer" class="divRowDataContainer">
+               <h2>Ranking</h2>
+               <div class="divTableHeader">
+                  <label >Juego Nro.</label>
+                  <label >Jugador</label>
+                  <label id="scoreLabelHeader" >Puntaje</label>
+                  <label >Nivel</label>
+                  <label >Segundos</label>
+                  <label id="dateLabelHeader" >Fecha</label>
+               </div>
+               <hr class="hrTable">
+               <div id="rowDataContainer" class="divRowDataContainer">
                   <!-- filled in JS file -->
-                </div>                        
-                <div class="divPopupCloseButton">
-                    <button class="btnClosePopup" id="closeRankingPopupBtn" title="Cerrar">
-                        Cerrar
-                    </button>
-                </div>                      
+               </div>
+               <div class="divPopupCloseButton">
+                  <button class="btnClosePopup" id="closeRankingPopupBtn" title="Cerrar">
+                  Cerrar
+                  </button>
+               </div>
             </div>
-        </div>  
-        <div class="divGameContainer">
-            <div class="divLeftData">  
-                <h3>Maximos Valores</h3>   
-                <div class="divHighestScoreContainer">
-                    <div class="divHighestScoreSaved">
-                        <p>Maximo puntaje obtenido: </p>
-                        <label id="highestScoreSaved" ></label>
-                    </div>                   
-                    <div class="divHighestScoreBelongsTo">
-                        <p>Pertenece a:</p><label id="ownerHighestScoreSavedLabel" ></label>
-                    </div>                    
-                </div>                       
-                <div class="divHighestLevelContainer">
-                    <div class="divMaximumLevelAchieved">
-                        <p>Maximo nivel alcanzado: </p>
-                        <label id="highestLevelSaved" ></label>
-                    </div>                   
-                    <div class="divHighestLevelBelongsTo">
-                        <p>Pertenece a:</p><label id="ownerHighestLevelSavedLabel" ></label>
-                    </div>                    
-                </div>   
-                <div class="divBtnResetData">
-                    <button id="btnReset" class="btnWAnimation">
-                        <span>
-                          Resetear
-                        </span>
-                    </button>
-                </div>             
+         </div>
+         <div class="divGameContainer">
+            <div class="divLeftData">
+               <h3>Maximos Valores</h3>
+               <div class="divHighestScoreContainer">
+                  <div class="divHighestScoreSaved">
+                     <p>Maximo puntaje obtenido: </p>
+                     <label id="highestScoreSaved" ></label>
+                  </div>
+                  <div class="divHighestScoreBelongsTo">
+                     <p>Pertenece a:</p>
+                     <label id="ownerHighestScoreSavedLabel" ></label>
+                  </div>
+               </div>
+               <div class="divHighestLevelContainer">
+                  <div class="divMaximumLevelAchieved">
+                     <p>Maximo nivel alcanzado: </p>
+                     <label id="highestLevelSaved" ></label>
+                  </div>
+                  <div class="divHighestLevelBelongsTo">
+                     <p>Pertenece a:</p>
+                     <label id="ownerHighestLevelSavedLabel" ></label>
+                  </div>
+               </div>
+               <div class="divBtnResetData">
+                  <button id="btnReset" class="btnWAnimation">
+                  <span>
+                  Resetear
+                  </span>
+                  </button>
+               </div>
             </div>
-            <div class="divBtnContainer">            
-                <div class="divGameBtnsContainer">
-                    <button class="btnGame green" id="3"></button>
-                    <button class="btnGame red" id="1"></button>
-                    
-                </div>                
-                <div class="divPlayBtn">
-                    <button id="btnPlay">JUGAR</button>
-                </div>              
-                <div class="divGameBtnsContainer">
-                    <button class="btnGame yellow" id="4"></button>
-                    <button class="btnGame blue" id="2"></button>                    
-                </div>
-            </div>   
+            <div class="divBtnContainer">
+               <div class="divGameBtnsContainer">
+                  <button class="btnGame green" id="3"></button>
+                  <button class="btnGame red" id="1"></button>
+               </div>
+               <div class="divPlayBtn">
+                  <button id="btnPlay">JUGAR</button>
+               </div>
+               <div class="divGameBtnsContainer">
+                  <button class="btnGame yellow" id="4"></button>
+                  <button class="btnGame blue" id="2"></button>                    
+               </div>
+            </div>
             <div class="divRightData">
-                <h3 id="actualGame">Juego Actual</h3>  
-                <div class="divProgressBar" id="progressBar"></div> <label id="labelSeconds" ></label>
-                <div class="divActualScore">
-                    <p>Puntaje:</p> <label id="labelScore" ></label>
-                </div>        
-                <div class="divBtnRanking">
-                    <button id="btnRanking" class="btnWAnimation">
-                        <span>
-                          Ranking
-                        </span>
-                    </button>
-                </div>                     
-            </div>         
-        </div>                           
-    </main>
-
-    <footer>
-        <div class="divFooterText">                                     
+               <h3 id="actualGame">Juego Actual</h3>
+               <div class="divProgressBar" id="progressBar"></div>
+               <label id="labelSeconds" ></label>
+               <div class="divActualScore">
+                  <p>Puntaje:</p>
+                  <label id="labelScore" ></label>
+               </div>
+               <div class="divBtnRanking">
+                  <button id="btnRanking" class="btnWAnimation">
+                  <span>
+                  Ranking
+                  </span>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </main>
+      <footer>
+         <div class="divFooterText">
             <p>Version Minions!</p>
-        </div>
-    </footer>
-    <script src="simon.js"></script>
-</body>
+         </div>
+      </footer>
+      <script src="simon.js"></script>
+   </body>
 </html>
