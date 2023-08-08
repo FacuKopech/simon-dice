@@ -17,7 +17,7 @@
 
 ## Ranking
 ### El jugador puede oprimir en el boton 'Ranking' para visualizar las partidas que ha jugado, junto con el numero de partida, nombre del jugador, el puntaje obtenido, el maximo nivel al cual ha llegado en dicha partida, la cantidad de segundos que demoro en todas las secuencias, y la fecha.
-![image](https://github.com/FacuKopech/simon-dice/assets/63883859/f9f6d22a-7e0f-4356-8ec8-711727ab8c56)
+![image](https://github.com/FacuKopech/simon-dice/assets/63883859/1aead99a-b92f-46cf-b60c-c772cee5c259)
 
 ### No solo se visualizara sus partidas, sino la de todos los jugadores que ingresen su nombre en el campo de mas arriba. De esta forma, el jugador puede competir con sus amigos y todos llevar un registro de quien ha sido el mas victorioso!
 
