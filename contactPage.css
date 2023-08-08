@@ -1,55 +1,55 @@
 link[rel="icon"] {
-    width: 32pt;
     height: 32pt;
+    width: 32pt;
   }
   body {
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    resize: both;
-    overflow: auto;
     height: 100%;
-    min-height: 100vh;
     margin: 0 auto;
+    min-height: 100vh;
+    overflow: auto;
+    resize: both;  
   }
   header {
     height: 50px;
   }
   .navCustom {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
     background-color: #373737;
+    display: flex;
+    flex-direction: row;
     height: 100%;
+    justify-content: center;    
   }
   
   .divNavTitleContainer {
     display: flex;
     flex-direction: row;
-    width: 100%;
     justify-content: center;
+    width: 100%;
   }
   
   .navCustom p {
-    font-family: "Oleo Script", cursive;
     color: #ffffff;
+    font-family: "Oleo Script", cursive;
     font-weight: 400;
   }
   
   main {
+    background-color: #274156;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
     height: 100%;
-    min-height: 90.8vh;
     margin: 0 auto;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    resize: both;
+    min-height: 90.8vh;
     overflow: auto;
-    background-color: #274156;
+    resize: both;  
   }
   
   .divMainTitle {
@@ -57,10 +57,10 @@ link[rel="icon"] {
     justify-content: center;
   }
   .divMainTitle p {
-    font-weight: bold;
-    font-size: xx-large;
-    font-family: "Oleo Script", cursive;
     color: #f0f8ff;
+    font-family: "Oleo Script", cursive;
+    font-size: xx-large;
+    font-weight: bold;
   }
   
   .divFormContainer {
@@ -68,32 +68,32 @@ link[rel="icon"] {
     justify-content: center;
   }
   .formContact {
-    display: flex;
     background-color: #373737;
-    height: fit-content;
-    width: fit-content;
-    justify-content: center;
-    border-radius: 15px;
-    border-left: 3px solid #00a74a;
-    border-top: 3px solid #9f0f17;
-    border-right: 3px solid #094a8f;
     border-bottom: 3px solid #cca707;
+    border-left: 3px solid #00a74a;
+    border-radius: 15px;
+    border-right: 3px solid #094a8f;
+    border-top: 3px solid #9f0f17;
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    width: fit-content; 
   }
   
   .divInputsContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 26vw;
-    max-width: 30vw;
     margin: 14px;
+    max-width: 30vw;
+    width: 26vw;
   }
   
   .divInputsContainer label {
+    color: #ccc;
+    font-family: "Oleo Script", cursive;
     font-size: medium;
     font-weight: 500;
-    font-family: "Oleo Script", cursive;
-    color: #ccc;
   }
   
   input[type="text"] {
@@ -108,17 +108,17 @@ link[rel="icon"] {
   }
   
   .txtAreaMensaje {
-    width: 26vw;
-    max-width: 30vw;
     height: 214px;
+    max-width: 30vw;
+    width: 26vw;
   }
   
   .divSubmitBtn {
-    display: flex;
-    justify-content: center;
-    height: 190px;
-    flex-wrap: wrap;
     align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 190px;
+    justify-content: center;
   }
   
   .divSubmitBtn button {
@@ -126,45 +126,45 @@ link[rel="icon"] {
   }
   
   .submit {
-    width: 140px;
-    height: auto;
+    background: transparent;  
+    display: block;   
     float: left;
-    transition: 0.5s linear;
-    position: relative;
-    display: block;
+    font-weight: 900;
+    height: auto;
+    margin: 0 5px;    
     overflow: hidden;
     padding: 15px;
+    position: relative;
     text-align: center;
-    margin: 0 5px;
-    background: transparent;
     text-transform: uppercase;
-    font-weight: 900;
+    transition: 0.5s linear;
+    width: 140px;    
   }
   
   .submit:before {
-    position: absolute;
-    content: "";
-    left: 0;
-    bottom: 0;
-    height: 4px;
-    width: 100%;
     border-bottom: 4px solid transparent;
     border-left: 4px solid transparent;
     box-sizing: border-box;
+    bottom: 0;
+    content: "";
+    height: 4px;
+    left: 0;
+    position: absolute;
     transform: translateX(100%);
+    width: 100%;    
   }
   
   .submit:after {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    border-top: 4px solid transparent;
     border-right: 4px solid transparent;
+    border-top: 4px solid transparent;
     box-sizing: border-box;
+    content: "";
+    height: 4px;
+    left: 0;
+    position: absolute;
+    top: 0;
     transform: translateX(-100%);
+    width: 100%;         
   }
   
   .submit:hover {
@@ -186,36 +186,37 @@ link[rel="icon"] {
   }
   
   button {
+    background: transparent;
+    border: none;
     color: #000000;
-    text-decoration: none;
     cursor: pointer;
     outline: none;
-    border: none;
-    background: transparent;
+    text-decoration: none;        
   }
   
   footer {
-    height: 69px;
-    min-height: 5vh;
-    margin: 0 auto;
+    background-color: #373737;
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    resize: both;
-    overflow: auto;
-    background-color: #373737;
     display: flex;
+    height: 69px;
     justify-content: center;
+    margin: 0 auto;
+    min-height: 5vh;
+    overflow: auto;
+    resize: both;      
   }
   
   .divFooterText {
+    align-content: center;
+    color: #ffffff;
     display: flex;
     flex-wrap: wrap;
-    align-content: center;
     font-family: "Oleo Script", cursive;
-    color: #ffffff;
-    font-weight: 400;
     font-size: x-large;
+    font-weight: 400;
+    justify-content: center;                
   }
   
   @media screen and (max-width: 300px) {

@@ -1,47 +1,48 @@
 link[rel="icon"] {
-  width: 32pt;
   height: 32pt;
+  width: 32pt;
 }
-body {
+body {  
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  resize: both;
-  overflow: auto;
   height: 100%;
-  min-height: 100vh;
   margin: 0 auto;
+  min-height: 100vh;
+  overflow: auto;
+  resize: both;
 }
+
 header {
   height: 50px;
 }
 .navCustom {
-  display: flex;
-  justify-content: space-between;
   background-color: #383737;
+  display: flex;
   height: 100%;
+  justify-content: space-between;
 }
 .divNavTitleContainer {
   display: flex;
   justify-content: center;
-  width: 90%;
   margin-left: 42px;
+  width: 90%;
 }
 
 .navCustom p {
-  font-family: "Oleo Script", cursive;
   color: #f5f1f1;
+  font-family: "Oleo Script", cursive;
   font-weight: 400;
 }
 
-.btnContactButton {
-  display: flex;
+.btnContactButton {  
+  align-content: center;
   background-color: transparent;
   border: none;
+  display: flex;
+  flex-wrap: wrap;
   font-size: larger;
   font-weight: 500;
-  flex-wrap: wrap;
-  align-content: center;
   margin-top: 10px;
 }
 
@@ -51,48 +52,48 @@ header {
 }
 
 main {
-  height: 100%;
-  min-height: 90.8vh;
-  margin: 0 auto;
+  background-color: #274156;
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  resize: both;
-  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  min-height: 90.8vh;
   overflow: auto;
-  background-color: #274156;
+  position: relative;
+  resize: both;
 }
 
 .divColorLayerLooser {
-  display: none;
   background-color: #9f0f16db;
+  display: none;
+  height: 100%;
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
   z-index: 1;
 }
 
 .divColorLayerWinner {
-  display: none;
   background-color: #00a74bd6;
+  display: none;
+  height: 100%;
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
   z-index: 1;
 }
 
 .divContainerData {
+  color: #00cba4;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   font-family: "Silkscreen", cursive;
-  color: #00cba4;
-  font-weight: 100;
   font-size: larger;
+  font-weight: 100;
+  justify-content: space-around;
 }
 
 .divLeftData {
@@ -102,27 +103,7 @@ main {
   font-family: "Silkscreen", cursive;
 }
 
-.input-container {
-  position: relative;
-}
 
-.input {
-  padding: 10px;
-  height: 40px;
-  border: 2px solid #0b2447;
-  border-top: none;
-  border-bottom: none;
-  font-size: 16px;
-  background: transparent;
-  outline: none;
-  box-shadow: 7px 7px 0px 0px #0b2447;
-  transition: all 0.5s;
-}
-
-.input:focus {
-  box-shadow: none;
-  transition: all 0.5s;
-}
 
 .label {
   position: absolute;
@@ -145,29 +126,29 @@ main {
   background-color: transparent;
   border: 0;
   border-bottom: 2px #fff solid;
-  display: block;
-  padding: 15px 0;
-  font-size: 18px;
   color: #fff;
+  display: block;
+  font-size: 18px;
+  padding: 15px 0;
 }
 
 .divInputControl input:focus,
 .divInputControl input:valid {
-  outline: 0;
   border-bottom-color: #00cba4;
+  outline: 0;
 }
 
 #h6LevelDisplay {
-  font-family: "Silkscreen", cursive;
   display: flex;
-  justify-content: center;
+  font-family: "Silkscreen", cursive;
   font-size: larger;
+  justify-content: center;
 }
 
 .divHighestScoreContainer {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .divHighestScoreSaved {
@@ -196,8 +177,8 @@ main {
 }
 .divHighestLevelContainer {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .divMaximumLevelAchieved {
@@ -215,7 +196,7 @@ main {
 
 .divHighestLevelBelongsTo label {
   align-self: center;
-  color: darkgreen;
+  color: #006400;
   margin-left: 10px;
 }
 
@@ -225,47 +206,46 @@ main {
 }
 
 .btnWAnimation {
-  --btn-default-bg: #292929;
-  --btn-padding: 15px 20px;
-  --btn-hover-bg: #333333;
-  --btn-transition: 0.3s;
-  --btn-letter-spacing: 0.1rem;
   --btn-animation-duration: 1.2s;
-  --btn-shadow-color: #000000;
+  --btn-default-bg: #292929;
+  --btn-hover-bg: #333333;
+  --btn-letter-spacing: 0.1rem;
+  --btn-padding: 15px 20px;
   --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
-  --hover-btn-color: #125dc5;
+  --btn-shadow-color: #000000;
+  --btn-transition: 0.3s;
   --default-btn-color: #fff;
+  --font-family: Menlo, Roboto Mono, monospace;
   --font-size: 16px;
   --font-weight: 600;
-  --font-family: Menlo, Roboto Mono, monospace;
-  box-sizing: border-box;
-  padding: var(--btn-padding);
-  display: flex;
+  --hover-btn-color: #125dc5;
   align-items: center;
-  justify-content: center;
-  color: var(--default-btn-color);
-  font: var(--font-weight) var(--font-size) var(--font-family);
   background: var(--btn-default-bg);
-  border: none;
-  cursor: pointer;
-  transition: var(--btn-transition);
-  overflow: hidden;
+  border: none;  
   box-shadow: var(--btn-shadow);
+  color: var(--default-btn-color);
+  cursor: pointer;
+  display: flex;
+  font: var(--font-weight) var(--font-size) var(--font-family);
+  justify-content: center;
+  overflow: hidden;
+  padding: var(--btn-padding);
+  transition: var(--btn-transition);
 }
 
-.btnWAnimation span {
-  letter-spacing: var(--btn-letter-spacing);
-  transition: var(--btn-transition);
-  box-sizing: border-box;
-  position: relative;
+.btnWAnimation span {  
   background: inherit;
+  box-sizing: border-box;
+  letter-spacing: var(--btn-letter-spacing);
+  position: relative;
+  transition: var(--btn-transition);
 }
 
 .btnWAnimation span::before {
-  box-sizing: border-box;
-  position: absolute;
-  content: "";
   background: inherit;
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
 }
 
 .btnWAnimation:hover,
@@ -374,11 +354,11 @@ main {
   }
 }
 .divProgressBar {
-  width: fit-content;
-  height: 30px;
-  border: 1px solid #ccc;
   background-color: #f1f1f1;
+  border: 1px solid #ccc;
   border-radius: 55px;
+  height: 30px;
+  width: fit-content;
 }
 
 .divActualScore {
@@ -393,46 +373,46 @@ main {
 }
 
 .divPopupLooserContainer {
+  align-content: center;
   display: none;
   flex-direction: column;
   flex-wrap: wrap;
-  align-content: center;
-  position: absolute;
   justify-content: center;
+  position: absolute;
   width: -webkit-fill-available;
   z-index: 1000;
 }
 
 .divPopupNameInfoContainer {
+  align-content: center;
   display: none;
   flex-direction: column;
   flex-wrap: wrap;
-  align-content: center;
-  position: absolute;
   justify-content: center;
-  width: -webkit-fill-available;
+  position: absolute;
   text-align: center;
+  width: -webkit-fill-available;
   z-index: 1000;
 }
 
 .divPopupRankingContainer {
+  align-content: center;
   display: none;
   flex-direction: column;
   flex-wrap: wrap;
-  align-content: center;
-  position: absolute;
   justify-content: center;
+  position: absolute;
   width: 100%;
   z-index: 1000;
 }
-.popupGameOverContent {
-  width: fit-content;
+.popupGameOverContent {  
   background-color: #0b2447;
   border-radius: 14px;
-  font-family: "Silkscreen", cursive;
   color: #c52424;
-  font-weight: 100;
+  font-family: "Silkscreen", cursive;
   font-size: larger;
+  font-weight: 100;
+  width: fit-content;
 }
 
 div h2 {
@@ -443,39 +423,39 @@ div h2 {
 }
 
 .divPopupNameInfoContent {
-  max-width: 236px;
   background-color: #0b2447;
   border-radius: 14px;
-  font-family: "Silkscreen", cursive;
   color: #d0d009;
-  font-weight: 100;
+  font-family: "Silkscreen", cursive;    
   font-size: larger;
+  font-weight: 100;  
+  max-width: 236px;
 }
 
 .divPopupRankingContent {
-  width: 800px;
   background-color: #0b2447;
   border-radius: 14px;
-  font-family: "Silkscreen", cursive;
   color: #87bcde;
-  font-weight: 100;
+  font-family: "Silkscreen", cursive;
   font-size: larger;
-  overflow-x: scroll;
+  font-weight: 100;
   max-height: 500px;
+  overflow-x: scroll;
   overflow-y: scroll;
+  width: 800px;
 }
 
 .divTableHeader {
+  background-color: #008B8B;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin-bottom: 10px;
-  background-color: darkcyan;
 }
 
 .hrTable {
-  width: 92%;
   border: 2px #343436 solid;
+  width: 92%;
 }
 
 .divRowDataContainer {
@@ -520,17 +500,17 @@ div h2 {
 }
 
 .divScoreAchieved {
+  color: #00a74a;
   display: flex;
   justify-content: center;
-  margin-right: 10px;
   margin-left: 10px;
-  color: #00a74a;
+  margin-right: 10px;
 }
 
-#labelScoreGameOver {
+#labelScoreGameOver {  
+  align-self: center;
   display: flex;
   flex-wrap: wrap;
-  align-self: center;
   margin-left: 10px;
 }
 
@@ -541,42 +521,42 @@ div h2 {
 }
 
 .divGameContainer {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
   align-content: center;
-  height: auto;
-  margin-bottom: 40px;
-  font-family: "Silkscreen", cursive;
   color: #00cba4;
-  font-weight: 100;
+  display: flex;  
+  flex-wrap: wrap;
+  font-family: "Silkscreen", cursive;
   font-size: larger;
+  font-weight: 100;
+  height: auto;
+  justify-content: space-around;
+  margin-bottom: 40px;
 }
 
 .divBtnContainer {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  flex-wrap: wrap;
   align-content: center;
-  border-radius: 50%;
-  width: 580px;
-  height: 580px;
   background-color: #343436;
   border: 2px black solid;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 580px;
+  justify-content: space-evenly;
+  width: 580px;  
 }
 .divGameBtnsContainer {
-  margin-bottom: -4px;
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: -4px;
   width: 100%;
 }
 
 .btnGame {
-  width: 252px;
-  height: 252px;
-  border: none;
+  border: none;  
   display: inline-block;
+  height: 252px;
+  width: 252px;
 }
 
 .red {
@@ -597,32 +577,32 @@ div h2 {
 }
 
 .divPlayBtn {
+  align-self: center;
   display: flex;
+  flex-wrap: wrap;
+  height: 300px;
   justify-content: center;
   position: absolute;
-  flex-wrap: wrap;
-  align-self: center;
-  z-index: 0;
   width: 307px;
-  height: 300px;
+  z-index: 0;        
 }
 
 #btnPlay {
-  text-align: center;
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: center;
-  align-content: center;
+  align-content: center;  
   background-color: #343436;
+  border: none;
   border-radius: 50%;
   color: #ffffff;
+  display: flex;
+  font-family: "Silkscreen", cursive;
   font-size: large;
   font-weight: 600;
-  font-family: "Silkscreen", cursive;
-  border: none;
-  z-index: 0;
-  width: 100%;
+  flex-wrap: wrap;  
   height: 100%;
+  justify-content: center;    
+  text-align: center;
+  width: 100%;    
+  z-index: 0;
 }
 
 #btnPlay:hover {
@@ -651,27 +631,28 @@ div h2 {
 }
 
 footer {
-  height: 69px;
-  min-height: 5vh;
-  margin: 0 auto;
+  background-color: #373737;
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  resize: both;
-  overflow: auto;
-  background-color: #373737;
   display: flex;
+  height: 69px;
   justify-content: center;
+  margin: 0 auto;
+  min-height: 5vh;
+  overflow: auto;
+  resize: both;  
 }
 
 .divFooterText {
+  align-content: center;
+  color: #ffffff;
   display: flex;
   flex-wrap: wrap;
-  align-content: center;
   font-family: "Oleo Script", cursive;
-  color: #ffffff;
-  font-weight: 400;
   font-size: x-large;
+  font-weight: 400;
+  justify-content: center;
 }
 
 .divRightData {
@@ -680,10 +661,10 @@ footer {
 
 @media screen and (max-width: 1400px) {
   .divGameContainer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
     align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;    
   }
   .divProgressBar {
     max-width: 40%;
@@ -698,11 +679,11 @@ footer {
     text-align: center;
   }
   .divLeftData {
-    order: 3;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: auto;
+    order: 3;
+    width: auto;      
   }
 
   .divBtnContainer {
@@ -710,26 +691,26 @@ footer {
   }
 
   .divRightData {
-    order: 1;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin-bottom: 10px;
-    width: auto;
     margin-top: -80px;
+    order: 1;
+    width: auto;
   }
 }
 
 @media screen and (max-width: 600px) {
   .divBtnContainer {
-    width: 100%;
     height: 100%;
     order: 2;
+    width: 100%;
   }
 
   .divPlayBtn {
-    width: 25%;
     height: 15%;
+    width: 25%;    
   }
 
   #btnPlay {
