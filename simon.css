@@ -1,761 +1,746 @@
 link[rel="icon"] {
-    width: 32pt;
-    height: 32pt;
-  }
-body{
-    background-position: bottom;
+  width: 32pt;
+  height: 32pt;
+}
+body {
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
   resize: both;
   overflow: auto;
   height: 100%;
   min-height: 100vh;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
-header{
-    height: 50px;
+header {
+  height: 50px;
 }
-.navCustom{
+.navCustom {
   display: flex;
-    justify-content: space-between;
-    background-color: #383737;
-    height: 100%;    
-    
+  justify-content: space-between;
+  background-color: #383737;
+  height: 100%;
 }
-.divNavTitleContainer{
+.divNavTitleContainer {
   display: flex;
   justify-content: center;
   width: 90%;
   margin-left: 42px;
 }
 
-.navCustom p{
-    font-family: 'Oleo Script', cursive;
-    color: #F5F1F1;
-    font-weight: 400;
+.navCustom p {
+  font-family: "Oleo Script", cursive;
+  color: #f5f1f1;
+  font-weight: 400;
 }
 
-.btnContactButton{
+.btnContactButton {
   display: flex;
-    background-color: transparent;
-    border: none;
-    font-size: larger;
-    font-weight: 500;
-    flex-wrap: wrap;
-    align-content: center;
-    margin-top: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: larger;
+  font-weight: 500;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-top: 10px;
 }
 
-.btnContactButton:hover{
-  background-color: #0B2447;
+.btnContactButton:hover {
+  background-color: #0b2447;
   border-radius: 30px;
 }
 
-main{
-    height: 100%;
-    min-height: 90.8vh;
-    margin: 0 auto;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    resize: both;
-    position: relative;
-    overflow: auto;
-    background-color: #274156;
-    
+main {
+  height: 100%;
+  min-height: 90.8vh;
+  margin: 0 auto;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  resize: both;
+  position: relative;
+  overflow: auto;
+  background-color: #274156;
 }
 
 .divColorLayerLooser {
-    display: none;
-    background-color: #9f0f16db;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-  
-  .divColorLayerWinner{
-    display: none;
-    background-color: #00a74bd6;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-
-.divContainerData{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-family: 'Silkscreen', cursive;
-    color: #00cba4;
-    font-weight: 100;
-    font-size: larger;
-    
+  display: none;
+  background-color: #9f0f16db;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
-.divLeftData{
+.divColorLayerWinner {
+  display: none;
+  background-color: #00a74bd6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.divContainerData {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: "Silkscreen", cursive;
+  color: #00cba4;
+  font-weight: 100;
+  font-size: larger;
+}
+
+.divLeftData {
   width: fit-content;
 }
-.divContainerData h3{
-    font-family: 'Silkscreen', cursive;
+.divContainerData h3 {
+  font-family: "Silkscreen", cursive;
 }
 
 .input-container {
-    position: relative;
-  }
-  
-  .input {
-    padding: 10px;
-    height: 40px;
-    border: 2px solid #0B2447;
-    border-top: none;
-    border-bottom: none;
-    font-size: 16px;
-    background: transparent;
-    outline: none;
-    box-shadow: 7px 7px 0px 0px #0B2447;
-    transition: all 0.5s;
-  }
-  
-  .input:focus {
-    box-shadow: none;
-    transition: all 0.5s;
-  }
-  
-  .label {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    color: #0B2447;
-    transition: all 0.5s;
-    transform: scale(0);
-    z-index: -1;
-  }
-  
-  .divInputControl {
-    display: flex;
-    justify-content: center;
-    position: relative;    
-    width: 100%;
-  }
-  
-  .divInputControl input {
-    background-color: transparent;
-    border: 0;
-    border-bottom: 2px #fff solid;
-    display: block;    
-    padding: 15px 0;
-    font-size: 18px;
-    color: #fff;
-  }
-  
-  .divInputControl input:focus,
-  .divInputControl input:valid {
-    outline: 0;
-    border-bottom-color: #00cba4;
-  }
-  
-
-.divContainerData #h6LevelDisplay{
-    font-family: 'Silkscreen', cursive;
-    display: flex;
-    justify-content: center;
-    font-size: larger;
+  position: relative;
 }
 
-
-
-.divHighestScoreContainer{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;    
+.input {
+  padding: 10px;
+  height: 40px;
+  border: 2px solid #0b2447;
+  border-top: none;
+  border-bottom: none;
+  font-size: 16px;
+  background: transparent;
+  outline: none;
+  box-shadow: 7px 7px 0px 0px #0b2447;
+  transition: all 0.5s;
 }
 
-.divHighestScoreSaved{
+.input:focus {
+  box-shadow: none;
+  transition: all 0.5s;
+}
+
+.label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #0b2447;
+  transition: all 0.5s;
+  transform: scale(0);
+  z-index: -1;
+}
+
+.divInputControl {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.divInputControl input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  display: block;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.divInputControl input:focus,
+.divInputControl input:valid {
+  outline: 0;
+  border-bottom-color: #00cba4;
+}
+
+#h6LevelDisplay {
+  font-family: "Silkscreen", cursive;
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+}
+
+.divHighestScoreContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.divHighestScoreSaved {
   display: flex;
   flex-direction: row;
 }
 
-.divHighestScoreSaved label{
+.divHighestScoreSaved label {
   color: #006400;
 }
 
-.divHighestScoreBelongsTo{
+.divHighestScoreBelongsTo {
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
 }
 
-.divHighestScoreBelongsTo label{
+.divHighestScoreBelongsTo label {
   align-self: center;
   color: #006400;
   margin-left: 10px;
 }
 
-#highestScoreSaved{
-    align-self: center;
-    margin-left: 15px;
+#highestScoreSaved {
+  align-self: center;
+  margin-left: 15px;
 }
-.divHighestLevelContainer{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;    
+.divHighestLevelContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-.divMaximumLevelAchieved{
+.divMaximumLevelAchieved {
   display: flex;
   flex-direction: row;
 }
-.divMaximumLevelAchieved label{  
+.divMaximumLevelAchieved label {
   color: #006400;
 }
 
-.divHighestLevelBelongsTo{
+.divHighestLevelBelongsTo {
   display: flex;
   flex-direction: row;
 }
 
-.divHighestLevelBelongsTo label{
+.divHighestLevelBelongsTo label {
   align-self: center;
   color: darkgreen;
   margin-left: 10px;
 }
 
-#highestLevelSaved{
-    align-self: center;
-    margin-left: 15px;
+#highestLevelSaved {
+  align-self: center;
+  margin-left: 15px;
 }
 
-.btnWAnimation{
-    --btn-default-bg: #292929;
-    --btn-padding: 15px 20px;
-    --btn-hover-bg: #333333;
-    --btn-transition: .3s;
-    --btn-letter-spacing: .1rem;
-    --btn-animation-duration: 1.2s;
-    --btn-shadow-color: #000000;
-    --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
-    --hover-btn-color: #125dc5;
-    --default-btn-color: #fff;
-    --font-size: 16px;    
-    --font-weight: 600;
-    --font-family: Menlo,Roboto Mono,monospace;  
-    box-sizing: border-box;
-    padding: var(--btn-padding);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--default-btn-color);
-    font: var(--font-weight) var(--font-size) var(--font-family);
-    background: var(--btn-default-bg);
-    border: none;
-    cursor: pointer;
-    transition: var(--btn-transition);
-    overflow: hidden;
-    box-shadow: var(--btn-shadow);
-  }    
-  
-  .btnWAnimation span {
-    letter-spacing: var(--btn-letter-spacing);
-    transition: var(--btn-transition);
-    box-sizing: border-box;
-    position: relative;
-    background: inherit;
+.btnWAnimation {
+  --btn-default-bg: #292929;
+  --btn-padding: 15px 20px;
+  --btn-hover-bg: #333333;
+  --btn-transition: 0.3s;
+  --btn-letter-spacing: 0.1rem;
+  --btn-animation-duration: 1.2s;
+  --btn-shadow-color: #000000;
+  --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
+  --hover-btn-color: #125dc5;
+  --default-btn-color: #fff;
+  --font-size: 16px;
+  --font-weight: 600;
+  --font-family: Menlo, Roboto Mono, monospace;
+  box-sizing: border-box;
+  padding: var(--btn-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--default-btn-color);
+  font: var(--font-weight) var(--font-size) var(--font-family);
+  background: var(--btn-default-bg);
+  border: none;
+  cursor: pointer;
+  transition: var(--btn-transition);
+  overflow: hidden;
+  box-shadow: var(--btn-shadow);
+}
+
+.btnWAnimation span {
+  letter-spacing: var(--btn-letter-spacing);
+  transition: var(--btn-transition);
+  box-sizing: border-box;
+  position: relative;
+  background: inherit;
+}
+
+.btnWAnimation span::before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  background: inherit;
+}
+
+.btnWAnimation:hover,
+.btnWAnimation:focus {
+  background: var(--btn-hover-bg);
+}
+
+.btnWAnimation:hover span,
+.btnWAnimation:focus span {
+  color: var(--hover-btn-color);
+}
+
+.btnWAnimation:hover span::before,
+.btnWAnimation:focus span::before {
+  animation: chitchat linear both var(--btn-animation-duration);
+}
+
+@keyframes chitchat {
+  0% {
+    content: "#";
   }
-  
-  .btnWAnimation span::before {
-    box-sizing: border-box;
-    position: absolute;
+
+  5% {
+    content: ".";
+  }
+
+  10% {
+    content: "^{";
+  }
+
+  15% {
+    content: "-!";
+  }
+
+  20% {
+    content: "#$_";
+  }
+
+  25% {
+    content: "№:0";
+  }
+
+  30% {
+    content: "#{+.";}35%{content: "@}-?";
+  }
+
+  40% {
+    content: "?{4@%";
+  }
+
+  45% {
+    content: "=.,^!";
+  }
+
+  50% {
+    content: "?2@%";
+  }
+
+  55% {
+    content: "\;1}]";
+  }
+
+  60% {
+    content: "?{%:%";
+    right: 0;
+  }
+
+  65% {
+    content: "|{f[4";
+    right: 0;
+  }
+
+  70% {
+    content: "{4%0%";
+    right: 0;
+  }
+
+  75% {
+    content: "'1_0<";
+    right: 0;
+  }
+
+  80% {
+    content: "{0%";
+    right: 0;
+  }
+
+  85% {
+    content: "]>'";
+    right: 0;
+  }
+
+  90% {
+    content: "4";
+    right: 0;
+  }
+
+  95% {
+    content: "2";
+    right: 0;
+  }
+
+  100% {
     content: "";
-    background: inherit;
+    right: 0;
   }
-  
-  .btnWAnimation:hover, .btnWAnimation:focus {
-    background: var(--btn-hover-bg);
-  }
-  
-  .btnWAnimation:hover span, .btnWAnimation:focus span {
-    color: var(--hover-btn-color);
-  }
-  
-  .btnWAnimation:hover span::before, .btnWAnimation:focus span::before {
-    animation: chitchat linear both var(--btn-animation-duration);
-  }
-  
-  @keyframes chitchat {
-    0% {
-      content: "#";
-    }
-  
-    5% {
-      content: ".";
-    }
-  
-    10% {
-      content: "^{";
-    }
-  
-    15% {
-      content: "-!";
-    }
-  
-    20% {
-      content: "#$_";
-    }
-  
-    25% {
-      content: "№:0";
-    }
-  
-    30% {
-      content: "#{+.";
-    }
-  
-    35% {
-      content: "@}-?";
-    }
-  
-    40% {
-      content: "?{4@%";
-    }
-  
-    45% {
-      content: "=.,^!";
-    }
-  
-    50% {
-      content: "?2@%";
-    }
-  
-    55% {
-      content: "\;1}]";
-    }
-  
-    60% {
-      content: "?{%:%";
-      right: 0;
-    }
-  
-    65% {
-      content: "|{f[4";
-      right: 0;
-    }
-  
-    70% {
-      content: "{4%0%";
-      right: 0;
-    }
-  
-    75% {
-      content: "'1_0<";
-      right: 0;
-    }
-  
-    80% {
-      content: "{0%";
-      right: 0;
-    }
-  
-    85% {
-      content: "]>'";
-      right: 0;
-    }
-  
-    90% {
-      content: "4";
-      right: 0;
-    }
-  
-    95% {
-      content: "2";
-      right: 0;
-    }
-  
-    100% {
-      content: "";
-      right: 0;
-    }
-  }
-  .divProgressBar{
-    width: fit-content;          
-    height: 30px;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    border-radius: 55px;
-  }
-
-.divActualScore{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+}
+.divProgressBar {
+  width: fit-content;
+  height: 30px;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  border-radius: 55px;
 }
 
-#labelScore{
-    align-self: center;
-    margin-left: 15px;
+.divActualScore {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.divPopupLooserContainer{
-    display: none;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;    
-    position: absolute;
-    justify-content: center; 
-    width: -webkit-fill-available;
-    z-index: 1000;
+#labelScore {
+  align-self: center;
+  margin-left: 15px;
 }
 
-.divPopupNameInfoContainer{
-  display: none;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;    
-    position: absolute;
-    justify-content: center; 
-    width: -webkit-fill-available;
-    text-align: center;
-    z-index: 1000;
-}
-
-
-.divPopupRankingContainer{
+.divPopupLooserContainer {
   display: none;
   flex-direction: column;
   flex-wrap: wrap;
-  align-content: center;    
+  align-content: center;
   position: absolute;
-  justify-content: center; 
+  justify-content: center;
+  width: -webkit-fill-available;
+  z-index: 1000;
+}
+
+.divPopupNameInfoContainer {
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  position: absolute;
+  justify-content: center;
+  width: -webkit-fill-available;
+  text-align: center;
+  z-index: 1000;
+}
+
+.divPopupRankingContainer {
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  position: absolute;
+  justify-content: center;
   width: 100%;
   z-index: 1000;
 }
- .popupGameOverContent{
-    width: fit-content;
-    background-color:#0B2447;
-    border-radius: 14px;
-    font-family: 'Silkscreen', cursive;
-    color:#C52424;
-    font-weight: 100;
-    font-size: larger;    
- }
+.popupGameOverContent {
+  width: fit-content;
+  background-color: #0b2447;
+  border-radius: 14px;
+  font-family: "Silkscreen", cursive;
+  color: #c52424;
+  font-weight: 100;
+  font-size: larger;
+}
 
- div h2{
+div h2 {
   display: flex;
   justify-content: center;
   margin-left: 10px;
   margin-right: 10px;
 }
 
- .divPopupNameInfoContent{
+.divPopupNameInfoContent {
   max-width: 236px;
-  background-color:#0B2447;
+  background-color: #0b2447;
   border-radius: 14px;
-  font-family: 'Silkscreen', cursive;
-  color:#D0D009;
+  font-family: "Silkscreen", cursive;
+  color: #d0d009;
   font-weight: 100;
   font-size: larger;
-  
 }
 
- .divPopupRankingContent{
+.divPopupRankingContent {
   width: 800px;
-  background-color:#0B2447;
+  background-color: #0b2447;
   border-radius: 14px;
-  font-family: 'Silkscreen', cursive;
-  color:#87BCDE;
+  font-family: "Silkscreen", cursive;
+  color: #87bcde;
   font-weight: 100;
   font-size: larger;
   overflow-x: scroll;
   max-height: 500px;
-  overflow-y: scroll;  
+  overflow-y: scroll;
 }
 
-.divTableHeader{
+.divTableHeader {
   display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 10px;
-    background-color: darkcyan;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  background-color: darkcyan;
 }
 
-.hrTable{
+.hrTable {
   width: 92%;
   border: 2px #343436 solid;
 }
 
-.divRowDataContainer{
+.divRowDataContainer {
   display: flex;
-  flex-direction: column;    
+  flex-direction: column;
 }
 
-.btnClosePopup{
+.btnClosePopup {
   background-color: transparent;
-    border: none;
-    font-size: large;
-    font-weight: 700;
+  border: none;
+  font-size: large;
+  font-weight: 700;
 }
 
-.btnClosePopup:hover{
-  background-color: #F00707;
+.btnClosePopup:hover {
+  background-color: #f00707;
   border-radius: 30px;
 }
 
-.divLabelsContainer{
+.divLabelsContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin-bottom: 10px;
 }
-.labelPlayer{
+.labelPlayer {
   max-width: 40px;
 }
 
-.labelSeconds{
+.labelSeconds {
   display: flex;
   margin-right: -55px;
 }
 
-.labelDate{
+.labelDate {
   display: flex;
   width: 55px;
 }
 
- .infoIcon{
+.infoIcon {
   width: 68px;
- }
-
- .divScoreAchieved{
-    display: flex;
-    justify-content: center;
-    margin-right: 10px;
-    margin-left: 10px;
-    color: #00a74a;
- }
-
- #labelScoreGameOver{
-    display: flex;
-    flex-wrap: wrap;
-    align-self: center;
-    margin-left: 10px;
- }
-
- .divPopupCloseButton{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
- }
-
- 
-
-.divGameContainer{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-content: center;
-    height: auto;
-    margin-bottom: 40px;
-    font-family: 'Silkscreen', cursive;
-    color: #00cba4;
-    font-weight: 100;
-    font-size: larger;
 }
 
-.divBtnContainer{
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    flex-wrap: wrap;    
-    align-content: center;
-    border-radius: 50%;
-    width: 580px;
-    height: 580px;
-    background-color: #343436;
-    border: 2px black solid;
-}
-.divGameBtnsContainer{
-    margin-bottom: -4px;
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
+.divScoreAchieved {
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #00a74a;
 }
 
-.btnGame{
-    width: 252px;
-    height: 252px;    
-    border: none; 
-    display: inline-block;    
+#labelScoreGameOver {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+  margin-left: 10px;
+}
+
+.divPopupCloseButton {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.divGameContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-content: center;
+  height: auto;
+  margin-bottom: 40px;
+  font-family: "Silkscreen", cursive;
+  color: #00cba4;
+  font-weight: 100;
+  font-size: larger;
+}
+
+.divBtnContainer {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  border-radius: 50%;
+  width: 580px;
+  height: 580px;
+  background-color: #343436;
+  border: 2px black solid;
+}
+.divGameBtnsContainer {
+  margin-bottom: -4px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.btnGame {
+  width: 252px;
+  height: 252px;
+  border: none;
+  display: inline-block;
 }
 
 .red {
-    background-color: #9f0f17;
-    border-top-right-radius: 100%;
+  background-color: #9f0f17;
+  border-top-right-radius: 100%;
 }
 .blue {
-    background-color: #094a8f;
-    border-bottom-right-radius: 100%;
+  background-color: #094a8f;
+  border-bottom-right-radius: 100%;
 }
 .green {
-    background-color: #00a74a;
-    border-top-left-radius: 100%;
+  background-color: #00a74a;
+  border-top-left-radius: 100%;
 }
 .yellow {
-    background-color: #cca707;
-    border-bottom-left-radius: 100%; 
+  background-color: #cca707;
+  border-bottom-left-radius: 100%;
 }
 
-
-.divPlayBtn{
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    flex-wrap: wrap;    
-    align-self: center;
-    z-index: 0;
-    width: 307px;
-    height: 300px;
+.divPlayBtn {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  flex-wrap: wrap;
+  align-self: center;
+  z-index: 0;
+  width: 307px;
+  height: 300px;
 }
 
-#btnPlay{  
+#btnPlay {
   text-align: center;
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: center;
-    align-content: center;    
-    background-color: #343436;
-    border-radius: 50%;   
-    color: #FFFFFF;
-    font-size: large;
-    font-weight: 600;
-    font-family: 'Silkscreen', cursive;
-    border: none;    
-    z-index: 0;
-    width: 100%;
-    height: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: #343436;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: large;
+  font-weight: 600;
+  font-family: "Silkscreen", cursive;
+  border: none;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
 }
 
-#btnPlay:hover{
-    background-color: #434346;
+#btnPlay:hover {
+  background-color: #434346;
 }
-
 
 .transition-active-red {
-    background-color: #FF0000;
-  }
-  .transition-active-blue {
-    background-color: #0000FF;
-  }
-  .transition-active-green {
-    background-color: #008000;
-  }
-  .transition-active-yellow {
-    background-color: #FFFF00;
-  }
+  background-color: #ff0000;
+}
+.transition-active-blue {
+  background-color: #0000ff;
+}
+.transition-active-green {
+  background-color: #008000;
+}
+.transition-active-yellow {
+  background-color: #ffff00;
+}
 
-  .currentGame{
-    color: #006400;
-  }
+.currentGame {
+  color: #006400;
+}
 
-  .currentGameOver{
-    color: #FF0000;
-  }
+.currentGameOver {
+  color: #ff0000;
+}
 
+footer {
+  height: 69px;
+  min-height: 5vh;
+  margin: 0 auto;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  resize: both;
+  overflow: auto;
+  background-color: #373737;
+  display: flex;
+  justify-content: center;
+}
 
-  footer{
-    height: 69px;
-    min-height: 5vh;
-    margin: 0 auto;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    resize: both;
-    overflow: auto;
-    background-color: #373737;
-    display: flex;
-    justify-content: center;
-  }
+.divFooterText {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  font-family: "Oleo Script", cursive;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: x-large;
+}
 
-  .divFooterText{
+.divRightData {
+  width: 16%;
+}
+
+@media screen and (max-width: 1400px) {
+  .divGameContainer {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     align-content: center;
-    font-family: 'Oleo Script', cursive;
-    color: #FFFFFF;
-    font-weight: 400;
-    font-size: x-large;
-  } 
-
-  .divRightData{
-    width: 16%;
   }
-  
-  @media screen and (max-width: 1400px) {    
-    .divGameContainer {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      align-content: center;
-      
-    }
-    .divProgressBar {
-      max-width: 40%;
-    }
-    .divHighestScoreContainer{
-      width: 65%;
-    }
-  .divHighestLevelContainer{
+  .divProgressBar {
+    max-width: 40%;
+  }
+  .divHighestScoreContainer {
     width: 65%;
   }
-    .divTitle{
-      text-align: center;
-    }
-    .divLeftData{
-        order: 3;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: auto;
-    }
-
-    .divBtnContainer{           
-      order: 2;
-    }
-  
-    .divRightData{
-        order: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 10px;  
-        width: auto;
-        margin-top: -80px;      
-    }
+  .divHighestLevelContainer {
+    width: 65%;
+  }
+  .divTitle {
+    text-align: center;
+  }
+  .divLeftData {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
   }
 
-  @media screen and (max-width: 600px) {  
-  .divBtnContainer{   
-    width: 100%;
-    height: 100%;   
+  .divBtnContainer {
     order: 2;
   }
 
-  .divPlayBtn{      
+  .divRightData {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    width: auto;
+    margin-top: -80px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .divBtnContainer {
+    width: 100%;
+    height: 100%;
+    order: 2;
+  }
+
+  .divPlayBtn {
     width: 25%;
     height: 15%;
-  }    
+  }
 
-  #btnPlay{
+  #btnPlay {
     width: fit-content;
   }
 
-  .divPopupRankingContainer{   
-    width: 100%;    
+  .divPopupRankingContainer {
+    width: 100%;
   }
 
-  .divPopupRankingContent{
+  .divPopupRankingContent {
     width: 144%;
   }
 }

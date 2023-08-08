@@ -2,44 +2,41 @@ link[rel="icon"] {
     width: 32pt;
     height: 32pt;
   }
-body{
+  body {
     background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  resize: both;
-  overflow: auto;
-  height: 100%;
-  min-height: 100vh;
-  margin: 0 auto; 
-}
-header{
+    background-repeat: no-repeat;
+    background-size: cover;
+    resize: both;
+    overflow: auto;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+  }
+  header {
     height: 50px;
-}
-.navCustom{
-  display: flex;
+  }
+  .navCustom {
+    display: flex;
     justify-content: center;
     flex-direction: row;
     background-color: #373737;
-    height: 100%;    
-    
-}
-
-.divNavTitleContainer{
+    height: 100%;
+  }
+  
+  .divNavTitleContainer {
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;
     width: 100%;
     justify-content: center;
-}
-
-.navCustom p{
-    font-family: 'Oleo Script', cursive;
-    color: #FFFFFF;
+  }
+  
+  .navCustom p {
+    font-family: "Oleo Script", cursive;
+    color: #ffffff;
     font-weight: 400;
-}
-
-
-
-main{
+  }
+  
+  main {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -53,28 +50,27 @@ main{
     resize: both;
     overflow: auto;
     background-color: #274156;
-    
-}
-
-.divMainTitle{
+  }
+  
+  .divMainTitle {
     display: flex;
     justify-content: center;
-}
-.divMainTitle p{
+  }
+  .divMainTitle p {
     font-weight: bold;
     font-size: xx-large;
-    font-family: 'Oleo Script', cursive;
-    color: #F0F8FF;
-}
-
-.divFormContainer{
+    font-family: "Oleo Script", cursive;
+    color: #f0f8ff;
+  }
+  
+  .divFormContainer {
     display: flex;
     justify-content: center;
-}
-.formContact{     
+  }
+  .formContact {
     display: flex;
     background-color: #373737;
-    height: fit-content;    
+    height: fit-content;
     width: fit-content;
     justify-content: center;
     border-radius: 15px;
@@ -82,25 +78,25 @@ main{
     border-top: 3px solid #9f0f17;
     border-right: 3px solid #094a8f;
     border-bottom: 3px solid #cca707;
-}
-
-.divInputsContainer{
+  }
+  
+  .divInputsContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     width: 26vw;
     max-width: 30vw;
     margin: 14px;
-}
-
-.divInputsContainer label{
+  }
+  
+  .divInputsContainer label {
     font-size: medium;
     font-weight: 500;
-    font-family: 'Oleo Script', cursive;
-    color:#ccc;
-}
-
-input[type=text] {
+    font-family: "Oleo Script", cursive;
+    color: #ccc;
+  }
+  
+  input[type="text"] {
     width: 26vw;
     max-width: 30vw;
     padding: 12px 20px;
@@ -108,32 +104,32 @@ input[type=text] {
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;    
+    box-sizing: border-box;
   }
-
-  .txtAreaMensaje{
+  
+  .txtAreaMensaje {
     width: 26vw;
-    max-width: 30vw; 
+    max-width: 30vw;
     height: 214px;
   }
-
-  .divSubmitBtn{
+  
+  .divSubmitBtn {
     display: flex;
     justify-content: center;
     height: 190px;
     flex-wrap: wrap;
     align-content: center;
   }
-
-  .divSubmitBtn button{
+  
+  .divSubmitBtn button {
     height: fit-content;
   }
-
+  
   .submit {
     width: 140px;
     height: auto;
     float: left;
-    transition: .5s linear;
+    transition: 0.5s linear;
     position: relative;
     display: block;
     overflow: hidden;
@@ -147,7 +143,7 @@ input[type=text] {
   
   .submit:before {
     position: absolute;
-    content: '';
+    content: "";
     left: 0;
     bottom: 0;
     height: 4px;
@@ -160,7 +156,7 @@ input[type=text] {
   
   .submit:after {
     position: absolute;
-    content: '';
+    content: "";
     top: 0;
     left: 0;
     width: 100%;
@@ -179,14 +175,14 @@ input[type=text] {
     border-color: #262626;
     height: 100%;
     transform: translateX(0);
-    transition: .3s transform linear, .3s height linear .3s;
+    transition: 0.3s transform linear, 0.3s height linear 0.3s;
   }
   
   .submit:hover:after {
     border-color: #262626;
     height: 100%;
     transform: translateX(0);
-    transition: .3s transform linear, .3s height linear .5s;
+    transition: 0.3s transform linear, 0.3s height linear 0.5s;
   }
   
   button {
@@ -197,8 +193,8 @@ input[type=text] {
     border: none;
     background: transparent;
   }
-
-footer{
+  
+  footer {
     height: 69px;
     min-height: 5vh;
     margin: 0 auto;
@@ -211,27 +207,27 @@ footer{
     display: flex;
     justify-content: center;
   }
-
-  .divFooterText{
+  
+  .divFooterText {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    font-family: 'Oleo Script', cursive;
-    color: #FFFFFF;
+    font-family: "Oleo Script", cursive;
+    color: #ffffff;
     font-weight: 400;
     font-size: x-large;
   }
-
-  @media screen and (max-width: 300px) {    
-    .divInputsContainer{
-        width: 30vw;
+  
+  @media screen and (max-width: 300px) {
+    .divInputsContainer {
+      width: 30vw;
     }
-
-    input[type=text] {
-        width: 30vw;            
+  
+    input[type="text"] {
+      width: 30vw;
     }
-    
-    .txtAreaMensaje{
-        width: 30vw;        
-    }    
-  }
+  
+    .txtAreaMensaje {
+      width: 30vw;
+    }
+  }  
