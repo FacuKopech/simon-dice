@@ -8,7 +8,7 @@ var messageError = document.querySelector('span[id="messageError"]');
 var btnSubmit = document.querySelector('button[id="submitBtn"]'); 
 
 //fullName Events
-fullName.addEventListener("blur", (event) => { 
+fullName.addEventListener("blur", function(){ 
     var alphanumericRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])/;       
     if(!alphanumericRegex.test(event.target.value)){                
         fullNameError.textContent = "El nombre debe ser alfanumerico!";
@@ -21,12 +21,12 @@ fullName.addEventListener("blur", (event) => {
     }
 });
 
-fullName.addEventListener("focus", (event) => { 
+fullName.addEventListener("focus", function(){ 
     fullNameError.textContent = "";       
 });
 
 //email Events
-email.addEventListener("blur", (event) => {         
+email.addEventListener("blur", function(){         
     if(!event.target.value.includes("@") || !event.target.value.includes(".com") || event.target.value.includes(" ")){                
         emailError.textContent = "El email debe tener un formato valido!";
         emailError.style.display = "flex";
@@ -38,12 +38,12 @@ email.addEventListener("blur", (event) => {
     }
 });
 
-email.addEventListener("focus", (event) => { 
+email.addEventListener("focus", function(){ 
     emailError.textContent = "";       
 });
 
 //message Events
-message.addEventListener("blur", (event) => {         
+message.addEventListener("blur", function(){         
     if(event.target.value.length <= 5){       
         messageError.textContent = "El mensaje debe contener mas de 5 caracteres!";
         messageError.style.display = "flex";
@@ -55,7 +55,7 @@ message.addEventListener("blur", (event) => {
     }
 });
 
-message.addEventListener("focus", (event) => { 
+message.addEventListener("focus", function(){ 
     messageError.textContent = "";       
 });
 

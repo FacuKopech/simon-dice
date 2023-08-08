@@ -86,7 +86,7 @@ var gameDate = null;
 //Onload Event on window
 window.onload = function() {    
     popupNameInfo.style.display = "flex";
-    if(localStorage.getItem("Game") != null && localStorage.getItem("Game") >= 1){
+    if(localStorage.getItem("Game") !== null && localStorage.getItem("Game") >= 1){
         var highestScore = localStorage.getItem("highestScore");
         labelHighestScoreSaved.textContent = highestScore;
         var ownerHighestScore = localStorage.getItem("ownerHighestScore");
@@ -125,7 +125,7 @@ btnContact.addEventListener("click", function(){
 //btnRed Events
 btnRed.addEventListener("click", function(){                    
     playerClicksCounter += 1;
-    if(gameSequenceArray[playerClicksCounter - 1] != parseInt(btnRed.id)){        
+    if(gameSequenceArray[playerClicksCounter - 1] !== parseInt(btnRed.id)){        
         clearInterval(progressInterval);
         progressBar.style.width = "100%";
         progressBar.style.backgroundColor = "darkgreen";
@@ -133,14 +133,14 @@ btnRed.addEventListener("click", function(){
         GameOver();
     }
     
-    if(playerClicksCounter == gameSequenceArray.length && playerClicksCounter != 0){
+    if(playerClicksCounter === gameSequenceArray.length && playerClicksCounter !== 0){
         winnerLayerElement.style.display = "flex";
         completedSequenceCorrectly = true;
         clearInterval(progressInterval);
         progressBar.style.width = "100%";
         progressBar.style.backgroundColor = "darkgreen";
 
-        setTimeout(() => {
+        setTimeout(function() {
             winnerLayerElement.style.display = "none";
         }, 900);
         setTimeout(function() {
@@ -162,7 +162,7 @@ btnRed.addEventListener("mouseup", function() {
 //btnBlue Events
 btnBlue.addEventListener("click", function(){          
     playerClicksCounter += 1;
-    if(gameSequenceArray[playerClicksCounter - 1] != parseInt(btnBlue.id)){        
+    if(gameSequenceArray[playerClicksCounter - 1] !== parseInt(btnBlue.id)){        
         clearInterval(progressInterval);
         progressBar.style.width = "100%";
         progressBar.style.backgroundColor = "darkgreen";
@@ -170,14 +170,14 @@ btnBlue.addEventListener("click", function(){
         GameOver();
     }
     
-    if(playerClicksCounter == gameSequenceArray.length && playerClicksCounter != 0){
+    if(playerClicksCounter === gameSequenceArray.length && playerClicksCounter !== 0){
         winnerLayerElement.style.display = "flex";
         completedSequenceCorrectly = true;
         clearInterval(progressInterval);
         progressBar.style.width = "100%";
         progressBar.style.backgroundColor = "darkgreen";
 
-        setTimeout(() => {
+        setTimeout(function() {
             winnerLayerElement.style.display = "none";
         }, 900);
         setTimeout(function() {
@@ -199,7 +199,7 @@ btnBlue.addEventListener("mouseup", function() {
 //btnGreen Events
 btnGreen.addEventListener("click", function(){            
     playerClicksCounter += 1;
-    if(gameSequenceArray[playerClicksCounter - 1] != parseInt(btnGreen.id)){    
+    if(gameSequenceArray[playerClicksCounter - 1] !== parseInt(btnGreen.id)){    
         clearInterval(progressInterval);
         progressBar.style.width = "100%";
         progressBar.style.backgroundColor = "darkgreen";         
@@ -207,14 +207,14 @@ btnGreen.addEventListener("click", function(){
         GameOver();
     }
     
-    if(playerClicksCounter == gameSequenceArray.length && playerClicksCounter != 0){
+    if(playerClicksCounter === gameSequenceArray.length && playerClicksCounter !== 0){
         winnerLayerElement.style.display = "flex";
         completedSequenceCorrectly = true;
         clearInterval(progressInterval);
         progressBar.style.width = "100%";
         progressBar.style.backgroundColor = "darkgreen";
         
-        setTimeout(() => {
+        setTimeout(function() {
             winnerLayerElement.style.display = "none";
         }, 900);
         setTimeout(function() {
@@ -237,7 +237,7 @@ btnGreen.addEventListener("mouseup", function() {
 //btnYellow Events
 btnYellow.addEventListener("click", function(){  
     playerClicksCounter += 1;
-    if(gameSequenceArray[playerClicksCounter - 1] != parseInt(btnYellow.id)){        
+    if(gameSequenceArray[playerClicksCounter - 1] !== parseInt(btnYellow.id)){        
         clearInterval(progressInterval);
         progressBar.style.width = "100%";
         progressBar.style.backgroundColor = "darkgreen";
@@ -245,14 +245,14 @@ btnYellow.addEventListener("click", function(){
         GameOver();
     }
 
-    if(playerClicksCounter == gameSequenceArray.length && playerClicksCounter != 0){
+    if(playerClicksCounter === gameSequenceArray.length && playerClicksCounter !== 0){
         winnerLayerElement.style.display = "flex";
         completedSequenceCorrectly = true;
        clearInterval(progressInterval);
        progressBar.style.width = "100%";
        progressBar.style.backgroundColor = "darkgreen";
 
-        setTimeout(() => {
+        setTimeout(function() {
             winnerLayerElement.style.display = "none";
         }, 900);
         setTimeout(function() {
@@ -362,7 +362,7 @@ function buildSequence(){  //builds the sequence of buttons to repeat
     reproduceSequence();
     var sequenceDuration = 1500 * gameSequenceArray.length;
     setTimeout(function() {       
-        progressInterval = setInterval(() => {
+        progressInterval = setInterval(function() {
             secondsLeft--;
             updateProgressBar(secondsLeft);
             labelSeconds.textContent = `${secondsLeft} seg`;
@@ -378,15 +378,15 @@ function buildSequence(){  //builds the sequence of buttons to repeat
 function reproduceSequence(){  //plays the sequence of buttons to the player  
     playerClicksCounter = 0;
     for (var i = 0; i < gameSequenceArray.length; i++) {
-        if(gameSequenceArray[i] == parseInt(btnRed.id)){
+        if(gameSequenceArray[i] === parseInt(btnRed.id)){
             setTimeout(function() {
                 playRedSoundAndLight();
             }, i * 1500);
-        }else if(gameSequenceArray[i] == parseInt(btnBlue.id)){
+        }else if(gameSequenceArray[i] === parseInt(btnBlue.id)){
             setTimeout(function() {
                 playBlueSoundAndLight();
             }, i * 1500); 
-        }else if(gameSequenceArray[i] == parseInt(btnGreen.id)){
+        }else if(gameSequenceArray[i] === parseInt(btnGreen.id)){
             setTimeout(function() {
                 playGreenSoundAndLight();
             }, i * 1500);  
@@ -439,7 +439,7 @@ function updateTitle() {    //updates the "Bienvenido" title on user's name inpu
         }    
         if(title.textContent.length >= 14){
             btnPlay.disabled = false;
-        }else if(title.textContent.length < 14 && completeCharactersOnTitle == true){ //If goes in here its because it is deleting value on input until less than 14 chars
+        }else if(title.textContent.length < 14 && completeCharactersOnTitle === true){ //If goes in here its because it is deleting value on input until less than 14 chars
             btnPlay.disabled = true;
             popupNameInfo.style.display = "flex";
         }
@@ -493,7 +493,7 @@ function calculatePenalization(){ //if player took 2 seconds for example out of 
 function GameOver(){ //sets the variables and calls the appropiate methods to prepare for the next Game
     looserLayerElement.style.display = "flex";
     input.disabled = false;
-    setTimeout(() => {
+    setTimeout(function() {
         looserLayerElement.style.display = "none";
     }, 900);
 
@@ -525,7 +525,7 @@ function GameOver(){ //sets the variables and calls the appropiate methods to pr
 
 function saveGameDataInLocalStorage(){ //saves data in local storage for Ranking
     gameNumber = localStorage.getItem("Game");
-    if(gameNumber == null){
+    if(gameNumber === null){
         gameNumber = 1;        
     }
     else{
@@ -541,13 +541,13 @@ function saveGameDataInLocalStorage(){ //saves data in local storage for Ranking
 
 function calculateHighestLevelAndScoreSaved(){ //calculate highest level and score saved to know to which player do the values belong to
     gameNumber = localStorage.getItem("Game");
-    if(gameNumber != null){
+    if(gameNumber !== null){
         var highestScore = 0;
         var highestScoreBelongsTo = null;
         var highestLevel = 0;
         var highestLevelBelongsTo = null;
         for (var i = 1; i <= gameNumber; i++) {    
-            if(i == 1){
+            if(i === 1){
                 highestScore = localStorage.getItem(`Game: ${1} - Score`);
                 highestScoreBelongsTo = localStorage.getItem(`Game: ${1} - Player`);
                 highestLevel = localStorage.getItem(`Game: ${1} - Highest level reached`);
@@ -588,7 +588,7 @@ function orderRankingByScore(){ //orders the array by score (from highest to low
     var highestNumber = 0;
     var indexOfHighestNumber;
     for (var i = 0; i < gamesLastScores.length; i+= 2) { 
-        if(i == 0){
+        if(i === 0){
             highestNumber = gamesLastScores[0];
             indexOfHighestNumber = 0;
         }    
@@ -597,7 +597,7 @@ function orderRankingByScore(){ //orders the array by score (from highest to low
             indexOfHighestNumber = i;
         }        
 
-        if(i == gamesLastScores.length - 2){
+        if(i === gamesLastScores.length - 2){
             arrayOrderedByScore.push(gamesLastScores[indexOfHighestNumber+1]); //save game number with highest score
             gamesLastScores.splice(indexOfHighestNumber, 1); //remove highest score
             gamesLastScores.splice(indexOfHighestNumber, 1); //remove game of highest score            
@@ -617,7 +617,7 @@ function orderRankingByDate(){ //orders the array by date (from highest to lowes
     var highestDate = 0;
     var indexOfHighestDate;
     for (var i = 0; i < gamesDates.length; i+= 2) { 
-        if(i == 0){
+        if(i === 0){
             highestDate = gamesDates[0];
             indexOfHighestDate = 0;
         }    
@@ -626,7 +626,7 @@ function orderRankingByDate(){ //orders the array by date (from highest to lowes
             indexOfHighestDate = i;
         }        
 
-        if(i == gamesDates.length - 2){ //if it is evaluating last date value
+        if(i === gamesDates.length - 2){ //if it is evaluating last date value
             arrayOrderedByDate.push(gamesDates[indexOfHighestDate+1]); //save game number with highest date
             gamesDates.splice(indexOfHighestDate, 1); //remove highest date
             gamesDates.splice(indexOfHighestDate, 1); //remove game of highest date
@@ -637,7 +637,7 @@ function orderRankingByDate(){ //orders the array by date (from highest to lowes
 
 function showRankingPopupOrderedByScore(){ //if the "Score" label is clicked, the Ranking will be ordered by score
     gameNumber = localStorage.getItem("Game");
-    if(gameNumber != null){
+    if(gameNumber !== null){
         orderRankingByScore();
         for (var i = 0; i < arrayOrderedByScore.length; i++) {                
             var playerItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Player`);
@@ -680,7 +680,7 @@ function showRankingPopupOrderedByScore(){ //if the "Score" label is clicked, th
 
 function showRankingPopupOrderedByDate(){ //if the "Date" label is clicked, the Ranking will be ordered by date
     gameNumber = localStorage.getItem("Game");
-    if(gameNumber != null){
+    if(gameNumber !== null){
         orderRankingByDate();
         for (var i = 0; i < arrayOrderedByDate.length; i++) {                
             var playerItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Player`);
