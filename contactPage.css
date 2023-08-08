@@ -33,7 +33,7 @@ header{
 
 .navCustom p{
     font-family: 'Oleo Script', cursive;
-    color: white;
+    color: #FFFFFF;
     font-weight: 400;
 }
 
@@ -64,7 +64,7 @@ main{
     font-weight: bold;
     font-size: xx-large;
     font-family: 'Oleo Script', cursive;
-    color: aliceblue;
+    color: #F0F8FF;
 }
 
 .divFormContainer{
@@ -172,7 +172,7 @@ input[type=text] {
   }
   
   .submit:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px #0000008e;
   }
   
   .submit:hover:before {
@@ -190,7 +190,7 @@ input[type=text] {
   }
   
   button {
-    color: black;
+    color: #000000;
     text-decoration: none;
     cursor: pointer;
     outline: none;
@@ -217,7 +217,7 @@ footer{
     flex-wrap: wrap;
     align-content: center;
     font-family: 'Oleo Script', cursive;
-    color: white;
+    color: #FFFFFF;
     font-weight: 400;
     font-size: x-large;
   }
