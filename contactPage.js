@@ -1,7 +1,7 @@
 //HTML ELEMENTS
-var fullName = document.getElementById('fname');
+var fullName = document.getElementById("fname");
 var email = document.querySelector('input[id="email"]');
-var message = document.getElementById('message');;
+var message = document.getElementById("message");;
 var fullNameError = document.querySelector('span[id="nameError"]');
 var emailError = document.querySelector('span[id="emailError"]');
 var messageError = document.querySelector('span[id="messageError"]'); 
