@@ -1,3 +1,5 @@
+/* ELEMENT SELECTORS */
+
 link[rel="icon"] {
   height: 32pt;
   width: 32pt;
@@ -16,40 +18,6 @@ body {
 header {
   height: 50px;
 }
-.navCustom {
-  background-color: #383737;
-  display: flex;
-  height: 100%;
-  justify-content: space-between;
-}
-.divNavTitleContainer {
-  display: flex;
-  justify-content: center;
-  margin-left: 42px;
-  width: 90%;
-}
-
-.navCustom p {
-  color: #f5f1f1;
-  font-family: "Oleo Script", cursive;
-  font-weight: 400;
-}
-
-.btnContactButton {  
-  align-content: center;
-  background-color: transparent;
-  border: none;
-  display: flex;
-  flex-wrap: wrap;
-  font-size: larger;
-  font-weight: 500;
-  margin-top: 10px;
-}
-
-.btnContactButton:hover {
-  background-color: #0b2447;
-  border-radius: 30px;
-}
 
 main {
   background-color: #274156;
@@ -63,6 +31,88 @@ main {
   position: relative;
   resize: both;
 }
+
+footer {
+  background-color: #373737;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 69px;
+  justify-content: center;
+  margin: 0 auto;
+  min-height: 5vh;
+  overflow: auto;
+  resize: both;  
+}
+
+/* PSEUDO-SELECTORS */
+.btnContactButton:hover {
+  background-color: #0b2447;
+  border-radius: 30px;
+}
+
+.divInputControl input:focus,
+.divInputControl input:valid {
+  border-bottom-color: #00cba4;
+  outline: 0;
+}
+
+.btnClosePopup:hover {
+  background-color: #f00707;
+  border-radius: 30px;
+}
+
+.btnWAnimation span::before {
+  background: inherit;
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
+}
+
+.btnWAnimation:hover span::before,
+.btnWAnimation:focus span::before {
+  animation: chitchat linear both var(--btn-animation-duration);
+}
+
+.btnWAnimation:hover,
+.btnWAnimation:focus {
+  background: var(--btn-hover-bg);
+}
+
+.btnWAnimation:hover span,
+.btnWAnimation:focus span {
+  color: var(--hover-btn-color);
+}
+
+#btnPlay:hover {
+  background-color: #434346;
+}
+/* CLASS SELECTORS */
+.navCustom {
+  background-color: #383737;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+}
+.divNavTitleContainer {
+  display: flex;
+  justify-content: center;
+  margin-left: 42px;
+  width: 90%;
+}
+
+.btnContactButton {  
+  align-content: center;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: larger;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
 
 .divColorLayerLooser {
   background-color: #9f0f16db;
@@ -96,24 +146,6 @@ main {
   justify-content: space-around;
 }
 
-.divLeftData {
-  width: fit-content;
-}
-.divContainerData h3 {
-  font-family: "Silkscreen", cursive;
-}
-
-
-
-.label {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  color: #0b2447;
-  transition: all 0.5s;
-  transform: scale(0);
-  z-index: -1;
-}
 
 .divInputControl {
   display: flex;
@@ -122,27 +154,127 @@ main {
   width: 100%;
 }
 
-.divInputControl input {
-  background-color: transparent;
-  border: 0;
-  border-bottom: 2px #fff solid;
-  color: #fff;
-  display: block;
-  font-size: 18px;
-  padding: 15px 0;
+.divPopupLooserContainer {
+  align-content: center;
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+  width: -webkit-fill-available;
+  z-index: 1000;
 }
 
-.divInputControl input:focus,
-.divInputControl input:valid {
-  border-bottom-color: #00cba4;
-  outline: 0;
-}
-
-#h6LevelDisplay {
-  display: flex;
+.popupGameOverContent {  
+  background-color: #0b2447;
+  border-radius: 14px;
+  color: #c52424;
   font-family: "Silkscreen", cursive;
   font-size: larger;
+  font-weight: 100;
+  width: fit-content;
+}
+
+.divScoreAchieved {
+  color: #00a74a;
+  display: flex;
   justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.divPopupCloseButton {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.btnClosePopup {
+  background-color: transparent;
+  border: none;
+  font-size: large;
+  font-weight: 700;
+}
+
+.divPopupNameInfoContainer {
+  align-content: center;
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  width: -webkit-fill-available;
+  z-index: 1000;
+}
+
+.divPopupNameInfoContent {
+  background-color: #0b2447;
+  border-radius: 14px;
+  color: #d0d009;
+  font-family: "Silkscreen", cursive;    
+  font-size: larger;
+  font-weight: 100;  
+  max-width: 236px;
+}
+
+.divPopupRankingContainer {
+  align-content: center;
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
+
+.divPopupRankingContent {
+  background-color: #0b2447;
+  border-radius: 14px;
+  color: #87bcde;
+  font-family: "Silkscreen", cursive;
+  font-size: larger;
+  font-weight: 100;
+  max-height: 500px;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  width: 800px;
+}
+
+.divTableHeader {
+  background-color: #008B8B;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.hrTable {
+  border: 2px #343436 solid;
+  width: 92%;
+}
+
+.divRowDataContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.divGameContainer {
+  align-content: center;
+  color: #00cba4;
+  display: flex;  
+  flex-wrap: wrap;
+  font-family: "Silkscreen", cursive;
+  font-size: larger;
+  font-weight: 100;
+  height: auto;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.divLeftData {
+  width: fit-content;
 }
 
 .divHighestScoreContainer {
@@ -156,25 +288,11 @@ main {
   flex-direction: row;
 }
 
-.divHighestScoreSaved label {
-  color: #006400;
-}
-
 .divHighestScoreBelongsTo {
   display: flex;
   flex-direction: row;
 }
 
-.divHighestScoreBelongsTo label {
-  align-self: center;
-  color: #006400;
-  margin-left: 10px;
-}
-
-#highestScoreSaved {
-  align-self: center;
-  margin-left: 15px;
-}
 .divHighestLevelContainer {
   display: flex;
   flex-direction: column;
@@ -185,24 +303,10 @@ main {
   display: flex;
   flex-direction: row;
 }
-.divMaximumLevelAchieved label {
-  color: #006400;
-}
 
 .divHighestLevelBelongsTo {
   display: flex;
   flex-direction: row;
-}
-
-.divHighestLevelBelongsTo label {
-  align-self: center;
-  color: #006400;
-  margin-left: 10px;
-}
-
-#highestLevelSaved {
-  align-self: center;
-  margin-left: 15px;
 }
 
 .btnWAnimation {
@@ -233,6 +337,178 @@ main {
   transition: var(--btn-transition);
 }
 
+.divBtnContainer {
+  align-content: center;
+  background-color: #343436;
+  border: 2px black solid;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 580px;
+  justify-content: space-evenly;
+  width: 580px;  
+}
+
+
+.divGameBtnsContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: -4px;
+  width: 100%;
+}
+
+.btnGame {
+  border: none;  
+  display: inline-block;
+  height: 252px;
+  width: 252px;
+}
+
+.green {
+  background-color: #00a74a;
+  border-top-left-radius: 100%;
+}
+.red {
+  background-color: #9f0f17;
+  border-top-right-radius: 100%;
+}
+
+.divPlayBtn {
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 300px;
+  justify-content: center;
+  position: absolute;
+  width: 307px;
+  z-index: 0;        
+}
+
+.yellow {
+  background-color: #cca707;
+  border-bottom-left-radius: 100%;
+}
+
+.blue {
+  background-color: #094a8f;
+  border-bottom-right-radius: 100%;
+}
+
+.divRightData {
+  width: 16%;
+}
+
+.divProgressBar {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 55px;
+  height: 30px;
+  width: fit-content;
+}
+
+.divActualScore {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.divFooterText {
+  align-content: center;
+  color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Oleo Script", cursive;
+  font-size: x-large;
+  font-weight: 400;
+  justify-content: center;
+}
+
+/* ID SELECTORS */
+#h6LevelDisplay {
+  display: flex;
+  font-family: "Silkscreen", cursive;
+  font-size: larger;
+  justify-content: center;
+}
+
+#labelScoreGameOver {  
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 10px;
+}
+
+#highestScoreSaved {
+  align-self: center;
+  margin-left: 15px;
+}
+#highestLevelSaved {
+  align-self: center;
+  margin-left: 15px;
+}
+
+#btnPlay {
+  align-content: center;  
+  background-color: #343436;
+  border: none;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  font-family: "Silkscreen", cursive;
+  font-size: large;
+  font-weight: 600;
+  flex-wrap: wrap;  
+  height: 100%;
+  justify-content: center;    
+  text-align: center;
+  width: 100%;    
+  z-index: 0;
+}
+
+#labelScore {
+  align-self: center;
+  margin-left: 15px;
+}
+
+/* COMPOSED SELECTORS */
+.divInputControl input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  color: #fff;
+  display: block;
+  font-size: 18px;
+  padding: 15px 0;
+}
+
+div h2 {
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.divHighestScoreSaved label {
+  color: #006400;
+}
+
+.divHighestScoreBelongsTo label {
+  align-self: center;
+  color: #006400;
+  margin-left: 10px;
+}
+
+.divMaximumLevelAchieved label {
+  color: #006400;
+}
+
+.divHighestLevelBelongsTo label {
+  align-self: center;
+  color: #006400;
+  margin-left: 10px;
+}
+
 .btnWAnimation span {  
   background: inherit;
   box-sizing: border-box;
@@ -241,28 +517,50 @@ main {
   transition: var(--btn-transition);
 }
 
-.btnWAnimation span::before {
-  background: inherit;
-  box-sizing: border-box;
-  content: "";
-  position: absolute;
+/* SELECTORS FOR JS CODE */
+
+.currentGameOver {
+  color: #ff0000;
 }
 
-.btnWAnimation:hover,
-.btnWAnimation:focus {
-  background: var(--btn-hover-bg);
+.transition-active-red {
+  background-color: #ff0000;
+}
+.transition-active-blue {
+  background-color: #0000ff;
+}
+.transition-active-green {
+  background-color: #008000;
+}
+.transition-active-yellow {
+  background-color: #ffff00;
 }
 
-.btnWAnimation:hover span,
-.btnWAnimation:focus span {
-  color: var(--hover-btn-color);
+.divLabelsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.labelPlayer {
+  max-width: 40px;
 }
 
-.btnWAnimation:hover span::before,
-.btnWAnimation:focus span::before {
-  animation: chitchat linear both var(--btn-animation-duration);
+.labelSeconds {
+  display: flex;
+  margin-right: -55px;
 }
 
+.labelDate {
+  display: flex;
+  width: 55px;
+}
+
+.currentGame {
+  color: #006400;
+}
+
+/* ANIMATION OF 'RANKING' AND 'RESETEAR' BUTTONS */
 @keyframes chitchat {
   0% {
     content: "#";
@@ -353,312 +651,8 @@ main {
     right: 0;
   }
 }
-.divProgressBar {
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
-  border-radius: 55px;
-  height: 30px;
-  width: fit-content;
-}
 
-.divActualScore {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-#labelScore {
-  align-self: center;
-  margin-left: 15px;
-}
-
-.divPopupLooserContainer {
-  align-content: center;
-  display: none;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: absolute;
-  width: -webkit-fill-available;
-  z-index: 1000;
-}
-
-.divPopupNameInfoContainer {
-  align-content: center;
-  display: none;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: absolute;
-  text-align: center;
-  width: -webkit-fill-available;
-  z-index: 1000;
-}
-
-.divPopupRankingContainer {
-  align-content: center;
-  display: none;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: absolute;
-  width: 100%;
-  z-index: 1000;
-}
-.popupGameOverContent {  
-  background-color: #0b2447;
-  border-radius: 14px;
-  color: #c52424;
-  font-family: "Silkscreen", cursive;
-  font-size: larger;
-  font-weight: 100;
-  width: fit-content;
-}
-
-div h2 {
-  display: flex;
-  justify-content: center;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.divPopupNameInfoContent {
-  background-color: #0b2447;
-  border-radius: 14px;
-  color: #d0d009;
-  font-family: "Silkscreen", cursive;    
-  font-size: larger;
-  font-weight: 100;  
-  max-width: 236px;
-}
-
-.divPopupRankingContent {
-  background-color: #0b2447;
-  border-radius: 14px;
-  color: #87bcde;
-  font-family: "Silkscreen", cursive;
-  font-size: larger;
-  font-weight: 100;
-  max-height: 500px;
-  overflow-x: scroll;
-  overflow-y: scroll;
-  width: 800px;
-}
-
-.divTableHeader {
-  background-color: #008B8B;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 10px;
-}
-
-.hrTable {
-  border: 2px #343436 solid;
-  width: 92%;
-}
-
-.divRowDataContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.btnClosePopup {
-  background-color: transparent;
-  border: none;
-  font-size: large;
-  font-weight: 700;
-}
-
-.btnClosePopup:hover {
-  background-color: #f00707;
-  border-radius: 30px;
-}
-
-.divLabelsContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 10px;
-}
-.labelPlayer {
-  max-width: 40px;
-}
-
-.labelSeconds {
-  display: flex;
-  margin-right: -55px;
-}
-
-.labelDate {
-  display: flex;
-  width: 55px;
-}
-
-.infoIcon {
-  width: 68px;
-}
-
-.divScoreAchieved {
-  color: #00a74a;
-  display: flex;
-  justify-content: center;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-#labelScoreGameOver {  
-  align-self: center;
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 10px;
-}
-
-.divPopupCloseButton {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.divGameContainer {
-  align-content: center;
-  color: #00cba4;
-  display: flex;  
-  flex-wrap: wrap;
-  font-family: "Silkscreen", cursive;
-  font-size: larger;
-  font-weight: 100;
-  height: auto;
-  justify-content: space-around;
-  margin-bottom: 40px;
-}
-
-.divBtnContainer {
-  align-content: center;
-  background-color: #343436;
-  border: 2px black solid;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 580px;
-  justify-content: space-evenly;
-  width: 580px;  
-}
-.divGameBtnsContainer {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: -4px;
-  width: 100%;
-}
-
-.btnGame {
-  border: none;  
-  display: inline-block;
-  height: 252px;
-  width: 252px;
-}
-
-.red {
-  background-color: #9f0f17;
-  border-top-right-radius: 100%;
-}
-.blue {
-  background-color: #094a8f;
-  border-bottom-right-radius: 100%;
-}
-.green {
-  background-color: #00a74a;
-  border-top-left-radius: 100%;
-}
-.yellow {
-  background-color: #cca707;
-  border-bottom-left-radius: 100%;
-}
-
-.divPlayBtn {
-  align-self: center;
-  display: flex;
-  flex-wrap: wrap;
-  height: 300px;
-  justify-content: center;
-  position: absolute;
-  width: 307px;
-  z-index: 0;        
-}
-
-#btnPlay {
-  align-content: center;  
-  background-color: #343436;
-  border: none;
-  border-radius: 50%;
-  color: #ffffff;
-  display: flex;
-  font-family: "Silkscreen", cursive;
-  font-size: large;
-  font-weight: 600;
-  flex-wrap: wrap;  
-  height: 100%;
-  justify-content: center;    
-  text-align: center;
-  width: 100%;    
-  z-index: 0;
-}
-
-#btnPlay:hover {
-  background-color: #434346;
-}
-
-.transition-active-red {
-  background-color: #ff0000;
-}
-.transition-active-blue {
-  background-color: #0000ff;
-}
-.transition-active-green {
-  background-color: #008000;
-}
-.transition-active-yellow {
-  background-color: #ffff00;
-}
-
-.currentGame {
-  color: #006400;
-}
-
-.currentGameOver {
-  color: #ff0000;
-}
-
-footer {
-  background-color: #373737;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  height: 69px;
-  justify-content: center;
-  margin: 0 auto;
-  min-height: 5vh;
-  overflow: auto;
-  resize: both;  
-}
-
-.divFooterText {
-  align-content: center;
-  color: #ffffff;
-  display: flex;
-  flex-wrap: wrap;
-  font-family: "Oleo Script", cursive;
-  font-size: x-large;
-  font-weight: 400;
-  justify-content: center;
-}
-
-.divRightData {
-  width: 16%;
-}
-
+/* MEDIA QUERIES */
 @media screen and (max-width: 1400px) {
   .divGameContainer {
     align-content: center;
