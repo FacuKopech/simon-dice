@@ -11,8 +11,7 @@
 * Para cada nivel, el jugador dispondra de una cierta cantidad de segundos para repetir la secuencia. El nivel 1 comienza con 5 segundos, y a medida que avanza de nivel, se le agrega un segundo. 
 * Si el tiempo finaliza y el jugador aun no completo la secuencia, finaliza el juego
 * CUIDADO! Si el jugador repite la secuencia de manera exitosa y dentro del rango de tiempo disponible, hay que tener en cuenta la penalizacion: al puntaje acumulado en ese nivel, se le descontara un porcentaje acorde a la cantidad de segundos que demoro en completar la secuencia. Por ejemplo, el jugador se encuentra en el nivel 4, completo la secuencia de manera correcta y de los 8 segundos que tiene disponible, tardo 3, por ende, se le descuenta un 3% a su puntaje en dicho nivel.
-
-![image](https://github.com/FacuKopech/simon-dice/assets/63883859/06f8fe7c-384e-48b3-931f-a2966d4047ea)
+![image](https://github.com/FacuKopech/simon-dice/assets/63883859/fd63f7f4-2580-4cd7-95ce-24577c2d4527)
 
 ## Ranking
 ### El jugador puede oprimir en el boton 'Ranking' para visualizar las partidas que ha jugado, junto con el numero de partida, nombre del jugador, el puntaje obtenido, el maximo nivel al cual ha llegado en dicha partida, la cantidad de segundos que demoro en todas las secuencias, y la fecha.
