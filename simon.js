@@ -328,14 +328,12 @@ dateLabelHeader.addEventListener("click", function(){
 
 function getDate(){ //gets the current Date to save in Local Storage for Ranking
     var currentDate = new Date();
-
     var year = currentDate.getFullYear();
     var month = currentDate.getMonth() + 1; 
     var day = currentDate.getDate();
     var hours = currentDate.getHours();
     var minutes = currentDate.getMinutes();
     var seconds = currentDate.getSeconds();
-
 
     var formattedDate = `${day.toString().padStart(2, "0")}/${month.toString().padStart(2, "0")}/${year}`;
     var formattedTime = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
@@ -344,8 +342,11 @@ function getDate(){ //gets the current Date to save in Local Storage for Ranking
 }
 
 function buildSequence(){  //builds the sequence of buttons to repeat          
+    var randomNumber;
+    var sequenceDuration;
+    
     btnPlay.textContent = "MIRA Y ESCUCHA!"; 
-    var randomNumber = Math.floor(Math.random() * 4) + 1;
+    randomNumber = Math.floor(Math.random() * 4) + 1;
     gameSequenceArray.push(randomNumber);    
     if(gameSequenceArray.length > 1){
         level += 1;
@@ -360,7 +361,7 @@ function buildSequence(){  //builds the sequence of buttons to repeat
     updateProgressBar(secondsLeft);
     labelSeconds.textContent = `${secondsLeft} seg`;
     reproduceSequence();
-    var sequenceDuration = 1500 * gameSequenceArray.length;
+    sequenceDuration = 1500 * gameSequenceArray.length;
     setTimeout(function() {       
         progressInterval = setInterval(function() {
             secondsLeft--;
@@ -430,8 +431,9 @@ function playYellowSoundAndLight(){ //plays sound and light for yellow button
 }
 
 function updateTitle() {    //updates the "Bienvenido" title on user's name input with input's value
+    var updatedTitle;
     if(input.value.trim() !== ""){ //Check if typed values are not just spaces        
-        var updatedTitle = `Bienvenido ${input.value}`;       
+        updatedTitle = `Bienvenido ${input.value}`;       
         title.textContent = updatedTitle;
         if(title.textContent.length >= 14){
             completeCharactersOnTitle = true; //Rise flag when title value reaches 14 characters (Bienvenido + [space] + 3 letters)
@@ -449,7 +451,8 @@ function updateTitle() {    //updates the "Bienvenido" title on user's name inpu
 }
 
 function updateProgressBar(secondsLeft) {  //updates the progress bar every second
-    var progressPercentage = (secondsLeft / (totalSequenceTime + (level-1))) * 100;
+    var progressPercentage;
+    progressPercentage = (secondsLeft / (totalSequenceTime + (level-1))) * 100;
     progressBar.style.width = `${progressPercentage-10}%`;    
   if (secondsLeft <= 0) {
     clearInterval(progressInterval);
@@ -469,20 +472,25 @@ function updateProgressBar(secondsLeft) {  //updates the progress bar every seco
 }
 
 function calculatePenalization(){ //if player took 2 seconds for example out of the total time to repeat the sequence, 2% of the correct clicks in that sequence will be removed from the score
+    var porcentageToTake = 0;
+    var amountToAddToActualScore = 0;
+    var totalOfCorrectClicksUntilMistake = 0;
+    var amountToTakeFromActualScore = 0;
+
     if(completedSequenceCorrectly){ //if the sequence was completed correctly, the penalization applies to the amount of clicks on that level (amount of clicks = level)
-        var porcentageToTake = ((totalSequenceTime + (level-1)) - secondsLeft);
+        porcentageToTake = ((totalSequenceTime + (level-1)) - secondsLeft);
         totalSecondsTaken = totalSecondsTaken + porcentageToTake; //this value is not for the penalization, is just to keep track in storage of how many seconds in total it took for the player from starting to loosing the game
         amountToTakeFromActualScore = (porcentageToTake * level) / 100; 
-        var amountToAddToActualScore = level - amountToTakeFromActualScore;
+        amountToAddToActualScore = level - amountToTakeFromActualScore;
         actualScore = actualScore + amountToAddToActualScore;
         actualScore  = (actualScore * 100) / 100; //result with two decimals
         labelScore.textContent = actualScore;        
     }else{ // if the sequence was NOT completed correctly, the penalization applies only to the amount of correct clicks in that level        
-        var totalOfCorrectClicksUntilMistake = level -1;
-        var porcentageToTake = ((totalSequenceTime + (level-1)) - secondsLeft);
+        totalOfCorrectClicksUntilMistake = level -1;
+        porcentageToTake = ((totalSequenceTime + (level-1)) - secondsLeft);
         totalSecondsTaken = totalSecondsTaken + porcentageToTake; 
         amountToTakeFromActualScore = (porcentageToTake * totalOfCorrectClicksUntilMistake) / 100; 
-        var amountToAddToActualScore = totalOfCorrectClicksUntilMistake - amountToTakeFromActualScore;
+        amountToAddToActualScore = totalOfCorrectClicksUntilMistake - amountToTakeFromActualScore;
         actualScore = actualScore + amountToAddToActualScore;
         actualScore  = (Math.round(actualScore * 100) / 100).toFixed(2);
         labelScore.textContent = actualScore;        
@@ -490,7 +498,9 @@ function calculatePenalization(){ //if player took 2 seconds for example out of 
     completedSequenceCorrectly = false;
 }
 
-function GameOver(){ //sets the variables and calls the appropiate methods to prepare for the next Game
+function GameOver(){ //sets the variables and calls the appropiate methods to prepare for the next Game    
+    var updatedTitle;
+
     looserLayerElement.style.display = "flex";
     input.disabled = false;
     setTimeout(function() {
@@ -499,7 +509,7 @@ function GameOver(){ //sets the variables and calls the appropiate methods to pr
 
     popupLooser.style.display = "flex";
     btnPlay.disabled = true;
-    var updatedTitle = `GAME OVER ${input.value}!`;
+    updatedTitle = `GAME OVER ${input.value}!`;
     titlePopup.textContent = updatedTitle;
     labelScoreGameOver.textContent = actualScore;
     juegoActualH3.classList.remove("currentGame");
@@ -579,14 +589,15 @@ function calculateHighestLevelAndScoreSaved(){ //calculate highest level and sco
 
 function orderRankingByScore(){ //orders the array by score (from highest to lowest)
     var gamesLastScores = [];
+    var highestNumber = 0;
+    var indexOfHighestNumber;
+
     for (var i = 1; i <= gameNumber; i++) {  //Store all scores and its respective game number inside an array                  
         var score = localStorage.getItem(`Game: ${i} - Score`);    
         gamesLastScores.push(score);
         gamesLastScores.push(i);
     }
-    
-    var highestNumber = 0;
-    var indexOfHighestNumber;
+       
     for (var i = 0; i < gamesLastScores.length; i+= 2) { 
         if(i === 0){
             highestNumber = gamesLastScores[0];
@@ -608,14 +619,15 @@ function orderRankingByScore(){ //orders the array by score (from highest to low
 
 function orderRankingByDate(){ //orders the array by date (from highest to lowest)
     var gamesDates = [];
+    var highestDate = 0;
+    var indexOfHighestDate;
+
     for (var i = 1; i <= gameNumber; i++) {       //Store all scores and its respective game number inside an array                  
         var date = localStorage.getItem(`Game: ${i} - Date`);    
         gamesDates.push(date);
         gamesDates.push(i);
     }
-    
-    var highestDate = 0;
-    var indexOfHighestDate;
+        
     for (var i = 0; i < gamesDates.length; i+= 2) { 
         if(i === 0){
             highestDate = gamesDates[0];
@@ -636,26 +648,41 @@ function orderRankingByDate(){ //orders the array by date (from highest to lowes
 }
 
 function showRankingPopupOrderedByScore(){ //if the "Score" label is clicked, the Ranking will be ordered by score
+    var playerItemValue;
+    var scoreItemValue;
+    var levelItemValue;
+    var secondsItemValue;
+    var dateItemValue;
+
+    var divLabelsContainer;    
+    var playerLabel;    
+    var gameNumberLabel;
+    var scoreLabel;
+    var levelLabel;
+    var totalSecondsSpentOnGameLabel;    
+    var dateLabel;    
+
     gameNumber = localStorage.getItem("Game");
+
     if(gameNumber !== null){
         orderRankingByScore();
         for (var i = 0; i < arrayOrderedByScore.length; i++) {                
-            var playerItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Player`);
-            var scoreItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Score`);
-            var levelItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Highest level reached`);
-            var secondsItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Seconds taken`);
-            var dateItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Date`);            
+            playerItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Player`);
+            scoreItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Score`);
+            levelItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Highest level reached`);
+            secondsItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Seconds taken`);
+            dateItemValue = localStorage.getItem(`Game: ${arrayOrderedByScore[i]} - Date`);            
                       
-            var divLabelsContainer = document.createElement("div");
+            divLabelsContainer = document.createElement("div");
             divLabelsContainer.classList.add("divLabelsContainer");
-            var playerLabel = document.createElement("label");
+            playerLabel = document.createElement("label");
             playerLabel.classList.add("labelPlayer");
-            var gameNumberLabel = document.createElement("label");
-            var scoreLabel = document.createElement("label");
-            var levelLabel = document.createElement("label");
-            var totalSecondsSpentOnGameLabel = document.createElement("label");
+            gameNumberLabel = document.createElement("label");
+            scoreLabel = document.createElement("label");
+            levelLabel = document.createElement("label");
+            totalSecondsSpentOnGameLabel = document.createElement("label");
             totalSecondsSpentOnGameLabel.classList.add("labelSeconds");
-            var dateLabel = document.createElement("label");
+            dateLabel = document.createElement("label");
             dateLabel.classList.add("labelDate");
             
             playerLabel.textContent = playerItemValue;
@@ -679,26 +706,41 @@ function showRankingPopupOrderedByScore(){ //if the "Score" label is clicked, th
 }
 
 function showRankingPopupOrderedByDate(){ //if the "Date" label is clicked, the Ranking will be ordered by date
+    var playerItemValue;
+    var scoreItemValue;
+    var levelItemValue;
+    var secondsItemValue;
+    var dateItemValue;
+
+    var divLabelsContainer;    
+    var playerLabel;    
+    var gameNumberLabel;
+    var scoreLabel;
+    var levelLabel;
+    var totalSecondsSpentOnGameLabel;    
+    var dateLabel;    
+
     gameNumber = localStorage.getItem("Game");
+
     if(gameNumber !== null){
         orderRankingByDate();
         for (var i = 0; i < arrayOrderedByDate.length; i++) {                
-            var playerItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Player`);
-            var scoreItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Score`);
-            var levelItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Highest level reached`);
-            var secondsItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Seconds taken`);
-            var dateItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Date`);            
+            playerItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Player`);
+            scoreItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Score`);
+            levelItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Highest level reached`);
+            secondsItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Seconds taken`);
+            dateItemValue = localStorage.getItem(`Game: ${arrayOrderedByDate[i]} - Date`);            
                       
-            var divLabelsContainer = document.createElement("div");
+            divLabelsContainer = document.createElement("div");
             divLabelsContainer.classList.add("divLabelsContainer");
-            var playerLabel = document.createElement("label");
+            playerLabel = document.createElement("label");
             playerLabel.classList.add("labelPlayer");
-            var gameNumberLabel = document.createElement("label");
-            var scoreLabel = document.createElement("label");
-            var levelLabel = document.createElement("label");
-            var totalSecondsSpentOnGameLabel = document.createElement("label");
+            gameNumberLabel = document.createElement("label");
+            scoreLabel = document.createElement("label");
+            levelLabel = document.createElement("label");
+            totalSecondsSpentOnGameLabel = document.createElement("label");
             totalSecondsSpentOnGameLabel.classList.add("labelSeconds");
-            var dateLabel = document.createElement("label");
+            dateLabel = document.createElement("label");
             dateLabel.classList.add("labelDate");
             
             playerLabel.textContent = playerItemValue;

@@ -26,7 +26,7 @@ fullName.addEventListener("focus", function(){
 });
 
 //email Events
-email.addEventListener("blur", function(){         
+email.addEventListener("blur", function(event){         
     if(!event.target.value.includes("@") || !event.target.value.includes(".com") || event.target.value.includes(" ")){                
         emailError.textContent = "El email debe tener un formato valido!";
         emailError.style.display = "flex";
@@ -43,7 +43,7 @@ email.addEventListener("focus", function(){
 });
 
 //message Events
-message.addEventListener("blur", function(){         
+message.addEventListener("blur", function(event){         
     if(event.target.value.length <= 5){       
         messageError.textContent = "El mensaje debe contener mas de 5 caracteres!";
         messageError.style.display = "flex";
