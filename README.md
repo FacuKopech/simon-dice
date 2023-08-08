@@ -7,7 +7,18 @@
 
 ### Las reglas son simples:
 * El jugador debe repetir en el orden correcto la secuencia de luces y sonidos generada por el juego de manera aleatoria. A medida que completa cada secuencia, el jugador avanza de nivel.
-### Si el jugador oprime un boton que no corresponde al orden de la secuencia generada, finaliza el juego. 
-### Para cada nivel, el jugador dispondra de una cierta cantidad de segundos para repetir la secuencia.
-### Si el tiempo finaliza y el jugador aun no completo la secuencia, finaliza el juego
-### CUIDADO! Si el jugador repite la secuencia de manera exitosa y dentro del rango de tiempo disponible, se le descontara del puntaje acumulado en ese nivel, un porcentaje acorde a la cantidad de segundos que demoro en completar la secuencia. Por ejemplo, el jugador se encuentra en el nivel 4, completo la secuencia de manera correcta y de los 8 segundos que tiene disponible, tardo 3, por ende, se le descuenta un 3% a su puntaje en dicho nivel
+* Si el jugador oprime un boton que no corresponde al orden de la secuencia generada, finaliza el juego. 
+* Para cada nivel, el jugador dispondra de una cierta cantidad de segundos para repetir la secuencia.
+* Si el tiempo finaliza y el jugador aun no completo la secuencia, finaliza el juego
+* CUIDADO! Si el jugador repite la secuencia de manera exitosa y dentro del rango de tiempo disponible, se le descontara del puntaje acumulado en ese nivel, un porcentaje acorde a la cantidad de segundos que demoro en completar la secuencia. Por ejemplo, el jugador se encuentra en el nivel 4, completo la secuencia de manera correcta y de los 8 segundos que tiene disponible, tardo 3, por ende, se le descuenta un 3% a su puntaje en dicho nivel
+
+## Contacto
+
+### Si el jugador dispone de alguna queja o comentario sobre el juego, en la esquina superior derecha se encuentra un boton de 'Contacto':
+![image](https://github.com/FacuKopech/simon-dice/assets/63883859/d27576a3-8373-44b6-8a9a-da3158d9413d)
+
+###Dicho boton lo redirigira a la siguiente pagina
+![image](https://github.com/FacuKopech/simon-dice/assets/63883859/82748cc6-363b-4ade-9404-869c994e4654)
+
+### Aqui el jugador podra ingresar su nombre, email e ingresar alguna pregunta, queja o comentario acerca del juego, y enviarla.
+
