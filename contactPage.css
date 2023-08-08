@@ -37,18 +37,7 @@ header{
     font-weight: 400;
 }
 
-.divSimonIcon{
-    display: flex;
-    justify-content: center;
-    width: 4%;
-    margin-top: 2px;
-}
 
-.divSimonIcon svg{
-    width: 60pt;
-    height: 33pt;
-    margin-left: -1px;
-}
 
 main{
     display: flex;
@@ -82,7 +71,7 @@ main{
     display: flex;
     justify-content: center;
 }
-.form{     
+.formContact{     
     display: flex;
     background-color: #373737;
     height: fit-content;    
@@ -231,10 +220,6 @@ footer{
     color: white;
     font-weight: 400;
     font-size: x-large;
-  }
-
-  .divFooterText svg{
-    align-self: center;
   }
 
   @media screen and (max-width: 300px) {    
