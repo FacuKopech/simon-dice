@@ -8,7 +8,7 @@ var messageError = document.querySelector('span[id="messageError"]');
 var btnSubmit = document.querySelector('button[id="submitBtn"]'); 
 
 //fullName Events
-fullName.addEventListener("blur", function(){ 
+fullName.addEventListener("blur", function(event){ 
     var alphanumericRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])/;       
     if(!alphanumericRegex.test(event.target.value)){                
         fullNameError.textContent = "El nombre debe ser alfanumerico!";
