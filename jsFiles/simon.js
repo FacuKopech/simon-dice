@@ -540,6 +540,9 @@ function updateTitle() { //updates the "Bienvenido" title on user's name input w
 }
 //EVENT LISTENERS
 
+// name input Event
+input.addEventListener('input', updateTitle);
+
 //btnPlay Event
 btnPlay.addEventListener("click", function() {
     getDate();
